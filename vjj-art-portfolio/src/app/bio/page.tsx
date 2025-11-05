@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Download, Award, Calendar, MapPin } from "lucide-react"
-// Removed UI component imports - using simple HTML elements instead
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const BioPage = () => {
   const timeline = [

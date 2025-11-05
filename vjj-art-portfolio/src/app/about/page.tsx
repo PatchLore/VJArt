@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Palette, Users, Heart, Award, Eye, Lightbulb } from "lucide-react"
-// Removed UI component imports - using simple HTML elements instead
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const AboutPage = () => {
   const values = [

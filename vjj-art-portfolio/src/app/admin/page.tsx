@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Plus, Eye, Edit, Trash2, Mail, Users, Palette } from "lucide-react"
-// Removed UI component imports - using simple HTML elements instead
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 const AdminDashboard = () => {
   const [artworks, setArtworks] = useState([])
@@ -131,8 +132,8 @@ const AdminDashboard = () => {
                       <stat.icon size={24} className="text-white" />
                     </div>
                   </div>
-                  </div>
-                </div>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>

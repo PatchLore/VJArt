@@ -37,10 +37,12 @@ model Contact {
 }
 
 model User {
-  id       String @id @default(cuid())
-  email    String @unique
+  id       String    @id @default(cuid())
+  email    String    @unique
   password String
-  role     String @default("admin")
+  role     String    @default("admin")
+  accounts Account[]
+  sessions Session[]
 }
 
 model Account {

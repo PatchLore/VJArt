@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "type-check": "tsc --noEmit --skipLibCheck",
+    "postinstall": "prisma generate",
+    "build": "npm run type-check && next build",
     "start": "next start",
     "lint": "eslint",
     "db:seed": "tsx scripts/seed.ts",
