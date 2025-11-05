@@ -6,6 +6,7 @@
     "dev": "next dev",
     "type-check": "tsc --noEmit --skipLibCheck",
     "postinstall": "prisma generate",
+    "install": "npm install --legacy-peer-deps",
     "build": "npm run type-check && next build",
     "start": "next start",
     "lint": "eslint",
