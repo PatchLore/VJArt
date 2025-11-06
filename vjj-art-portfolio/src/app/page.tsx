@@ -165,11 +165,16 @@ export default function HomePage() {
               textDecoration: 'none',
               fontSize: '1.1rem'
             }}>Home</a></li>
-            <li><a href="#gallery" className="nav-link" style={{
+            <li><a href="/gallery" className="nav-link" style={{
               color: '#6b5d4f',
               textDecoration: 'none',
               fontSize: '1.1rem'
             }}>Gallery</a></li>
+            <li><a href="/blog" className="nav-link" style={{
+              color: '#6b5d4f',
+              textDecoration: 'none',
+              fontSize: '1.1rem'
+            }}>Blog</a></li>
             <li><a href="#about" className="nav-link" style={{
               color: '#6b5d4f',
               textDecoration: 'none',
