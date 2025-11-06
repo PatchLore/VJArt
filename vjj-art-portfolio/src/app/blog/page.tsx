@@ -19,11 +19,11 @@ export default async function BlogPage() {
   const allTags = getAllTags()
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-cream flex flex-col">
       <Header />
-      <main className="pt-20 pb-12 bg-cream text-charcoal">
+      <main className="flex-1 pt-20 pb-12 bg-cream text-charcoal">
         {/* Header Section */}
-        <section className="text-center py-12 px-4 border-b border-gold/20">
+        <section className="text-center py-12 px-4 border-b border-gold/20 bg-cream">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-display mb-4 text-charcoal">
               Artist Journal
@@ -35,7 +35,7 @@ export default async function BlogPage() {
         </section>
 
         {/* Blog List Section */}
-        <section className="py-8">
+        <section className="py-8 bg-cream">
           <BlogList posts={posts} allTags={allTags} />
         </section>
       </main>

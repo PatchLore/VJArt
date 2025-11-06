@@ -17,6 +17,17 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
     ? posts.filter((post) => post.tags.includes(selectedTag))
     : posts
 
+  // Handle empty posts
+  if (!posts || posts.length === 0) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-center py-12">
+          <p className="text-brown-soft text-lg">No blog posts available at this time.</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Categories Navigation */}
@@ -64,15 +75,21 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
               className="group block focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none focus-visible:rounded-lg"
             >
               <div className="relative h-64 overflow-hidden bg-cream">
-                <Image
-                  src={post.cover}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+                {post.cover ? (
+                  <Image
+                    src={post.cover}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-gold/20 to-gold/10 flex items-center justify-center">
+                    <span className="text-brown-soft text-sm">No image</span>
+                  </div>
+                )}
                 {post.featured && (
-                  <div className="absolute top-4 right-4 bg-gold text-white px-3 py-1 rounded-full text-xs font-body uppercase tracking-wider shadow-md">
+                  <div className="absolute top-4 right-4 bg-gold text-white px-3 py-1 rounded-full text-xs font-body uppercase tracking-wider shadow-md z-10">
                     Featured
                   </div>
                 )}
@@ -95,7 +112,7 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
                   {post.title}
                 </h2>
                 
-                {/* Post Date and Tags */}
+                {/* Post Date */}
                 <p className="text-sm text-brown-soft mb-3">
                   <time dateTime={post.date}>
                     {new Date(post.date).toLocaleDateString("en-US", {
@@ -104,10 +121,6 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
                       day: "numeric",
                     })}
                   </time>
-                  {post.tags.length > 0 && (
-                    <span className="mx-2">·</span>
-                  )}
-                  <span>{post.tags.slice(0, 3).join(" · ")}</span>
                 </p>
                 
                 {/* Post Excerpt */}
