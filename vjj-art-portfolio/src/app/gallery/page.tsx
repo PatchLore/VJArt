@@ -1,97 +1,31 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, ZoomIn, Heart, Share2 } from "lucide-react"
-// Removed UI component imports - using simple HTML elements instead
+import Image from "next/image"
+import { artworks } from "@/data/artworks"
 
 const GalleryPage = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<any>(null)
   const [filter, setFilter] = useState("all")
-  const [artworks, setArtworks] = useState([
-    {
-      id: 1,
-      title: "Abstract Dreams",
-      medium: "Mixed Media",
-      year: 2024,
-      dimensions: "24\" x 36\"",
-      price: 2500,
-      category: "abstract",
-      description: "A vibrant exploration of subconscious thoughts and emotions through bold colors and dynamic forms.",
-      image: "/api/placeholder/400/500",
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "Urban Landscapes",
-      medium: "Acrylic on Canvas",
-      year: 2024,
-      dimensions: "30\" x 40\"",
-      price: 3200,
-      category: "landscape",
-      description: "Contemporary cityscapes that capture the energy and rhythm of urban life.",
-      image: "/api/placeholder/400/500",
-      featured: false,
-    },
-    {
-      id: 3,
-      title: "Color Symphony",
-      medium: "Oil on Canvas",
-      year: 2023,
-      dimensions: "36\" x 48\"",
-      price: 4500,
-      category: "abstract",
-      description: "A harmonious blend of colors that creates a visual symphony of emotions.",
-      image: "/api/placeholder/400/500",
-      featured: true,
-    },
-    {
-      id: 4,
-      title: "Ethereal Forms",
-      medium: "Digital Art",
-      year: 2024,
-      dimensions: "Digital Print",
-      price: 800,
-      category: "digital",
-      description: "Digital exploration of ethereal forms and otherworldly landscapes.",
-      image: "/api/placeholder/400/500",
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "Nature's Whisper",
-      medium: "Watercolor",
-      year: 2023,
-      dimensions: "18\" x 24\"",
-      price: 1200,
-      category: "nature",
-      description: "Delicate watercolor study of natural forms and organic textures.",
-      image: "/api/placeholder/400/500",
-      featured: false,
-    },
-    {
-      id: 6,
-      title: "Modern Chaos",
-      medium: "Mixed Media",
-      year: 2024,
-      dimensions: "32\" x 40\"",
-      price: 3800,
-      category: "abstract",
-      description: "A chaotic yet controlled exploration of modern life through mixed media.",
-      image: "/api/placeholder/400/500",
-      featured: true,
-    },
-  ])
+
+  // Map our artworks to the format expected by the gallery
+  const galleryArtworks = artworks.map(art => ({
+    ...art,
+    medium: art.medium || "Oil on Canvas",
+    year: art.year || 2024,
+    dimensions: art.dimensions || "24\" x 30\"",
+    category: art.category || "landscape"
+  }))
 
   const categories = [
     { id: "all", name: "All Works" },
-    { id: "abstract", name: "Abstract" },
     { id: "landscape", name: "Landscape" },
-    { id: "digital", name: "Digital" },
-    { id: "nature", name: "Nature" },
+    { id: "still-life", name: "Still Life" },
   ]
 
-  const filteredArtworks = artworks.filter(
+  const filteredArtworks = galleryArtworks.filter(
     (artwork) => filter === "all" || artwork.category === filter
   )
 
@@ -122,8 +56,7 @@ const GalleryPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-gray-300 max-w-2xl mx-auto"
           >
-            Explore our collection of contemporary artworks that blend tradition
-            with modern innovation.
+            A collection of original oil paintings capturing moments of light, beauty, and quiet reflection in landscapes and still life.
           </motion.p>
         </div>
       </section>
@@ -152,7 +85,7 @@ const GalleryPage = () => {
       {/* Gallery Grid */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="masonry">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filteredArtworks.map((artwork, index) => (
                 <motion.div
@@ -162,23 +95,31 @@ const GalleryPage = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="masonry-item group cursor-pointer"
+                  className="group cursor-pointer"
                   onClick={() => openLightbox(artwork)}
+                  tabIndex={0}
                 >
-                  <div className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 rounded-lg">
-                    <div className="aspect-[4/5] bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                  <div className="border-2 border-transparent transition-all duration-300 ease-in-out hover:border-gold focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none rounded-md overflow-hidden">
+                    <div className="aspect-[4/5] relative overflow-hidden">
+                      <Image
+                        src={artwork.image}
+                        alt={artwork.title}
+                        fill
+                        className="object-cover transition-all duration-300 group-hover:brightness-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="bg-white/90 rounded-full p-3">
                           <ZoomIn size={24} className="text-gray-900" />
                         </div>
                       </div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                         <h3 className="font-semibold text-lg mb-1">{artwork.title}</h3>
                         <p className="text-sm opacity-90">{artwork.medium}, {artwork.year}</p>
                         {artwork.price && (
                           <p className="text-sm font-semibold text-yellow-400">
-                            ${artwork.price.toLocaleString()}
+                            £{artwork.price.toLocaleString()}
                           </p>
                         )}
                       </div>
@@ -210,7 +151,14 @@ const GalleryPage = () => {
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
                 {/* Image */}
-                <div className="aspect-square lg:aspect-auto bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 relative">
+                <div className="aspect-square lg:aspect-auto relative bg-gray-100">
+                  <Image
+                    src={selectedArtwork.image}
+                    alt={selectedArtwork.title}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                   <button
                     onClick={closeLightbox}
                     className="absolute top-4 right-4 z-10 bg-white/90 rounded-full p-2 hover:bg-white transition-colors"
@@ -229,7 +177,7 @@ const GalleryPage = () => {
                     <p><strong>Year:</strong> {selectedArtwork.year}</p>
                     <p><strong>Dimensions:</strong> {selectedArtwork.dimensions}</p>
                     {selectedArtwork.price && (
-                      <p><strong>Price:</strong> ${selectedArtwork.price.toLocaleString()}</p>
+                      <p><strong>Price:</strong> £{selectedArtwork.price.toLocaleString()}</p>
                     )}
                   </div>
                   <p className="text-gray-700 mb-8 leading-relaxed">

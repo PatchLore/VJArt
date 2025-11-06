@@ -19,72 +19,50 @@ async function main() {
 
   console.log('Admin user created:', admin)
 
-  // Create sample artworks
+  // Create sample artworks using real images
   const artworks = [
     {
-      title: "Abstract Dreams",
-      description: "A vibrant exploration of subconscious thoughts and emotions through bold colors and dynamic forms.",
-      medium: "Mixed Media",
-      year: 2024,
-      dimensions: "24\" x 36\"",
-      price: 2500,
-      category: "abstract",
-      images: ["/api/placeholder/400/500"],
-      featured: true,
-    },
-    {
-      title: "Urban Landscapes",
-      description: "Contemporary cityscapes that capture the energy and rhythm of urban life.",
-      medium: "Acrylic on Canvas",
-      year: 2024,
-      dimensions: "30\" x 40\"",
-      price: 3200,
-      category: "landscape",
-      images: ["/api/placeholder/400/500"],
-      featured: false,
-    },
-    {
-      title: "Color Symphony",
-      description: "A harmonious blend of colors that creates a visual symphony of emotions.",
+      title: "Venetian Sunrise",
+      description: "Soft morning light reflects on the Venetian lagoon, evoking peace and stillness.",
       medium: "Oil on Canvas",
-      year: 2023,
-      dimensions: "36\" x 48\"",
-      price: 4500,
-      category: "abstract",
-      images: ["/api/placeholder/400/500"],
+      year: 2024,
+      dimensions: "24\" x 30\"",
+      price: 180,
+      category: "landscape",
+      images: ["/images/IMG_4741.jpg"],
       featured: true,
     },
     {
-      title: "Ethereal Forms",
-      description: "Digital exploration of ethereal forms and otherworldly landscapes.",
-      medium: "Digital Art",
+      title: "San Giorgio Reflections",
+      description: "The calm waters of Venice mirror the dome of San Giorgio Maggiore at dusk.",
+      medium: "Oil on Canvas",
       year: 2024,
-      dimensions: "Digital Print",
-      price: 800,
-      category: "digital",
-      images: ["/api/placeholder/400/500"],
+      dimensions: "24\" x 30\"",
+      price: 180,
+      category: "landscape",
+      images: ["/images/IMG_4745.jpg"],
+      featured: true,
+    },
+    {
+      title: "Crocuses in Mum's Cup",
+      description: "Delicate purple blooms emerge from a floral teacup — a gentle reflection of love and memory.",
+      medium: "Oil on Canvas",
+      year: 2024,
+      dimensions: "20\" x 24\"",
+      price: 180,
+      category: "still-life",
+      images: ["/images/IMG_6431.jpg"],
       featured: false,
     },
     {
-      title: "Nature's Whisper",
-      description: "Delicate watercolor study of natural forms and organic textures.",
-      medium: "Watercolor",
-      year: 2023,
-      dimensions: "18\" x 24\"",
-      price: 1200,
-      category: "nature",
-      images: ["/api/placeholder/400/500"],
-      featured: false,
-    },
-    {
-      title: "Modern Chaos",
-      description: "A chaotic yet controlled exploration of modern life through mixed media.",
-      medium: "Mixed Media",
+      title: "Evening Café, Paris",
+      description: "A cozy Parisian café bathed in golden light — a quiet moment of city life.",
+      medium: "Oil on Canvas",
       year: 2024,
-      dimensions: "32\" x 40\"",
-      price: 3800,
-      category: "abstract",
-      images: ["/api/placeholder/400/500"],
+      dimensions: "24\" x 30\"",
+      price: 180,
+      category: "landscape",
+      images: ["/images/IMG_6519.jpg"],
       featured: true,
     },
   ]
@@ -136,6 +114,7 @@ main()
   .finally(async () => {
     await prisma.$disconnect()
   })
+
 
 
 

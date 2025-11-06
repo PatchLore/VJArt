@@ -30,9 +30,9 @@ const FeaturedWorkSection = () => {
   }
 
   return (
-    <section className="relative py-20 px-6 bg-[#FAF8F3] watercolor-overlay z-10">
+    <section className="relative py-20 px-6 bg-cream watercolor-overlay z-10">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-5xl font-display text-center mb-16 text-[#3D3D3D]">
+        <h2 className="text-5xl font-display text-center mb-16 text-brown">
           Featured Work
         </h2>
         
@@ -52,30 +52,30 @@ const FeaturedWorkSection = () => {
           <div className="space-y-6">
             <div>
               <div className="flex items-center gap-4 mb-3">
-                <span className="bg-[#8B9A6B] text-white px-4 py-1 text-sm uppercase tracking-wider">
+                <span className="bg-gold text-white px-4 py-1 text-sm uppercase tracking-wider">
                   {featuredWork.status}
                 </span>
-                <span className="text-[#6B7A4B] text-sm">{featuredWork.category}</span>
+                <span className="text-gold-dark text-sm">{featuredWork.category}</span>
               </div>
-              <h3 className="text-4xl font-display mb-4 text-[#3D3D3D]">
+              <h3 className="text-4xl font-display mb-4 text-brown">
                 {featuredWork.title}
               </h3>
             </div>
             
-            <p className="text-lg font-body leading-relaxed text-[#5A5A5A]">
+            <p className="text-lg font-body leading-relaxed text-brown-soft">
               {featuredWork.description}
             </p>
             
-            <div className="space-y-2 text-[#5A5A5A] font-body">
-              <p><strong className="text-[#3D3D3D]">Completed:</strong> {featuredWork.date}</p>
-              <p><strong className="text-[#3D3D3D]">Dimensions:</strong> {featuredWork.dimensions}</p>
-              <p><strong className="text-[#3D3D3D]">Frame:</strong> {featuredWork.frame}</p>
-              <p><strong className="text-[#3D3D3D]">Location:</strong> {featuredWork.location}</p>
-              <p><strong className="text-[#3D3D3D]">Painted with:</strong> {featuredWork.group}</p>
-              <p className="text-2xl mt-4 font-display text-[#3D3D3D]">£{featuredWork.price}</p>
+            <div className="space-y-2 text-brown-soft font-body">
+              <p><strong className="text-brown">Completed:</strong> {featuredWork.date}</p>
+              <p><strong className="text-brown">Dimensions:</strong> {featuredWork.dimensions}</p>
+              <p><strong className="text-brown">Frame:</strong> {featuredWork.frame}</p>
+              <p><strong className="text-brown">Location:</strong> {featuredWork.location}</p>
+              <p><strong className="text-brown">Painted with:</strong> {featuredWork.group}</p>
+              <p className="text-2xl mt-4 font-display text-brown">£{featuredWork.price}</p>
             </div>
             
-            <button className="mt-8 px-8 py-3 bg-[#8B9A6B] hover:bg-[#6B7A4B] text-white font-body text-base tracking-wide transition-colors duration-300">
+            <button className="mt-8 px-8 py-3 bg-gold hover:bg-gold-dark text-white font-body text-base tracking-wide transition-colors duration-300">
               Enquire About This Piece
             </button>
           </div>

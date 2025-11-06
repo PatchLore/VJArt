@@ -58,23 +58,23 @@ const ExhibitionHistorySection = () => {
   return (
     <section id="exhibitions" className="py-20 px-6 bg-white">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-5xl font-display text-center mb-16 text-[#3D3D3D]">
+        <h2 className="text-5xl font-display text-center mb-16 text-brown">
           Exhibition History
         </h2>
         
         <div className="space-y-12">
           {exhibitions.map((yearGroup, yearIdx) => (
-            <div key={yearGroup.year} className="border-l-4 border-[#8B9A6B] pl-8">
-              <h3 className="text-3xl font-display mb-6 text-[#3D3D3D]">
+            <div key={yearGroup.year} className="border-l-4 border-gold pl-8">
+              <h3 className="text-3xl font-display mb-6 text-brown">
                 {yearGroup.year}
               </h3>
               
               <div className="space-y-8">
                 {yearGroup.events.map((event, eventIdx) => (
                   <div key={eventIdx} className="animate-on-scroll">
-                    <div className="bg-[#FAF8F3] p-6 rounded-sm shadow-sm">
+                    <div className="bg-cream p-6 rounded-sm shadow-sm">
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-3">
-                        <h4 className="text-2xl font-display text-[#3D3D3D]">
+                        <h4 className="text-2xl font-display text-brown">
                           {event.title}
                         </h4>
                         <span className="text-[#8B9A6B] font-body text-sm uppercase tracking-wider">
@@ -84,7 +84,7 @@ const ExhibitionHistorySection = () => {
                       <p className="text-[#C9A961] font-body mb-2">
                         {event.location}
                       </p>
-                      <p className="text-[#5A5A5A] font-body leading-relaxed">
+                      <p className="text-brown-soft font-body leading-relaxed">
                         {event.description}
                       </p>
                     </div>

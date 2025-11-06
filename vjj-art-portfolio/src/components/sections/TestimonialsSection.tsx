@@ -29,9 +29,9 @@ const TestimonialsSection = () => {
   ]
 
   return (
-    <section className="py-20 px-6 bg-[#FAF8F3] watercolor-overlay">
+    <section className="py-20 px-6 bg-cream watercolor-overlay">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-5xl font-display text-center mb-16 text-[#3D3D3D]">
+        <h2 className="text-5xl font-display text-center mb-16 text-brown">
           What Collectors Say
         </h2>
         
@@ -49,12 +49,12 @@ const TestimonialsSection = () => {
                 </div>
               </div>
               
-              <p className="text-[#5A5A5A] font-body text-lg leading-relaxed mb-6 italic">
+              <p className="text-brown-soft font-body text-lg leading-relaxed mb-6 italic">
                 "{testimonial.text}"
               </p>
               
               <div className="border-t border-gray-200 pt-4">
-                <p className="font-display text-lg text-[#3D3D3D]">
+                <p className="font-display text-lg text-brown">
                   {testimonial.name}
                 </p>
                 <p className="text-[#8B9A6B] font-body text-sm">

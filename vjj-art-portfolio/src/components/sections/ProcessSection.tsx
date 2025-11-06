@@ -36,10 +36,10 @@ const ProcessSection = () => {
   return (
     <section id="process" className="py-20 px-6 bg-white">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-5xl font-display text-center mb-6 text-[#3D3D3D]">
+        <h2 className="text-5xl font-display text-center mb-6 text-brown">
           My Process
         </h2>
-        <p className="text-xl font-body text-center mb-16 text-[#5A5A5A] max-w-3xl mx-auto">
+        <p className="text-xl font-body text-center mb-16 text-brown-soft max-w-3xl mx-auto">
           I try to paint outdoors at least once a week, weather permitting. There's something magical about capturing the landscape directly from life—the changing light, the breeze, the sounds of nature all become part of the painting.
         </p>
         
@@ -63,7 +63,7 @@ const ProcessSection = () => {
                   </span>
                 </div>
               </div>
-              <p className="mt-4 text-sm font-body text-[#5A5A5A] italic">
+              <p className="mt-4 text-sm font-body text-brown-soft italic">
                 {photo.caption}
               </p>
             </div>

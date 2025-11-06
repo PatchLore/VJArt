@@ -256,10 +256,10 @@ const GallerySection = () => {
 
   return (
     <div className="max-w-[1400px] mx-auto px-10 py-[60px]" id="gallery">
-      <h2 className="text-5xl font-display text-center mb-6 text-[#3D3D3D]">
+      <h2 className="text-5xl font-display text-center mb-6 text-brown">
         My Gallery
       </h2>
-      <p className="text-xl font-body text-center mb-12 text-[#5A5A5A] max-w-3xl mx-auto">
+      <p className="text-xl font-body text-center mb-12 text-brown-soft max-w-3xl mx-auto">
         Each piece tells a story of a place, a moment, or a feeling. I paint what I see and what moves me—the changing light, the quiet beauty of the countryside, the simple elegance of everyday objects.
       </p>
 
@@ -269,7 +269,7 @@ const GallerySection = () => {
             id="categoryFilter"
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-5 py-3 border border-[#8B9A6B] bg-white text-sm cursor-pointer rounded-sm transition-colors hover:border-[#6B7A4B] font-body"
+            className="px-5 py-3 border border-gold bg-white text-sm cursor-pointer rounded-sm transition-colors hover:border-[#6B7A4B] font-body"
           >
             <option value="all">All Works</option>
             <option value="landscapes">Landscapes</option>
@@ -281,16 +281,16 @@ const GallerySection = () => {
         <div className="flex gap-2">
           <button
             onClick={() => toggleView('grid')}
-            className={`px-4 py-2 bg-white border border-[#8B9A6B] cursor-pointer transition-all rounded-sm font-body ${
-              viewMode === 'grid' ? 'bg-[#8B9A6B] text-white border-[#8B9A6B]' : ''
+            className={`px-4 py-2 bg-white border border-gold cursor-pointer transition-all rounded-sm font-body ${
+              viewMode === 'grid' ? 'bg-gold text-white border-gold' : ''
             }`}
           >
             Grid
           </button>
           <button
             onClick={() => toggleView('list')}
-            className={`px-4 py-2 bg-white border border-[#8B9A6B] cursor-pointer transition-all rounded-sm font-body ${
-              viewMode === 'list' ? 'bg-[#8B9A6B] text-white border-[#8B9A6B]' : ''
+            className={`px-4 py-2 bg-white border border-gold cursor-pointer transition-all rounded-sm font-body ${
+              viewMode === 'list' ? 'bg-gold text-white border-gold' : ''
             }`}
           >
             List
@@ -302,26 +302,29 @@ const GallerySection = () => {
         {sortedArtworks.map((artwork) => (
           <div
             key={artwork.id}
-            className="bg-white rounded-sm overflow-hidden shadow-md transition-all cursor-pointer hover:-translate-y-1 hover:shadow-xl animate-on-scroll"
+            className="bg-white rounded-sm overflow-hidden shadow-md animate-on-scroll group"
+            tabIndex={0}
           >
             <div
-              className="w-full h-[300px] relative overflow-hidden cursor-pointer"
+              className="border-2 border-transparent transition-all duration-300 ease-in-out hover:border-gold focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none rounded-md overflow-hidden cursor-pointer"
               onClick={() => openLightbox(artwork.image, artwork.title)}
             >
-              <img
-                src={artwork.image}
-                alt={artwork.title}
-                className="w-full h-full object-cover image-zoom"
-                loading="lazy"
-              />
-              <div className="absolute top-4 right-4">
-                <span className={`px-3 py-1 text-xs uppercase tracking-wider ${
-                  artwork.status === 'Available' 
-                    ? 'bg-[#8B9A6B] text-white' 
-                    : 'bg-[#C9A961] text-white'
-                }`}>
-                  {artwork.status}
-                </span>
+              <div className="w-full h-[300px] relative overflow-hidden">
+                <img
+                  src={artwork.image}
+                  alt={artwork.title}
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-105"
+                  loading="lazy"
+                />
+                <div className="absolute top-4 right-4">
+                  <span className={`px-3 py-1 text-xs uppercase tracking-wider ${
+                    artwork.status === 'Available' 
+                      ? 'bg-gold text-white' 
+                      : 'bg-gold-light text-white'
+                  }`}>
+                    {artwork.status}
+                  </span>
+                </div>
               </div>
             </div>
             
@@ -329,25 +332,25 @@ const GallerySection = () => {
               <div className="text-xs text-[#8B9A6B] uppercase tracking-wider mb-2 font-body">
                 {artwork.categoryLabel}
               </div>
-              <h3 className="text-lg font-display mb-2 tracking-wide text-[#3D3D3D]">
+              <h3 className="text-lg font-display mb-2 tracking-wide text-brown">
                 {artwork.title}
               </h3>
-              <p className="text-sm text-[#5A5A5A] leading-relaxed mb-4 font-body">
+              <p className="text-sm text-brown-soft leading-relaxed mb-4 font-body">
                 {artwork.description}
               </p>
               
-              <div className="space-y-1 text-xs text-[#5A5A5A] font-body mb-5">
-                <p><strong className="text-[#3D3D3D]">Dimensions:</strong> {artwork.dimensions}</p>
-                <p><strong className="text-[#3D3D3D]">Frame:</strong> {artwork.frame}</p>
-                <p><strong className="text-[#3D3D3D]">Location:</strong> {artwork.location}</p>
-                <p><strong className="text-[#3D3D3D]">Date:</strong> {artwork.date}</p>
+              <div className="space-y-1 text-xs text-brown-soft font-body mb-5">
+                <p><strong className="text-brown">Dimensions:</strong> {artwork.dimensions}</p>
+                <p><strong className="text-brown">Frame:</strong> {artwork.frame}</p>
+                <p><strong className="text-brown">Location:</strong> {artwork.location}</p>
+                <p><strong className="text-brown">Date:</strong> {artwork.date}</p>
                 {artwork.group && (
-                  <p><strong className="text-[#3D3D3D]">Painted with:</strong> {artwork.group}</p>
+                  <p><strong className="text-brown">Painted with:</strong> {artwork.group}</p>
                 )}
               </div>
               
               <div className="flex justify-between items-center pt-5 border-t border-gray-100">
-                <span className="text-lg font-display text-[#3D3D3D]">
+                <span className="text-lg font-display text-brown">
                   £{artwork.price}
                 </span>
                 <button
@@ -355,7 +358,7 @@ const GallerySection = () => {
                     e.stopPropagation()
                     alert(`Thank you for your interest in "${artwork.title}". Please email me at johnej@btinternet.com to enquire about this piece.`)
                   }}
-                  className="px-6 py-2 bg-[#8B9A6B] text-white text-xs uppercase tracking-wider transition-colors hover:bg-[#6B7A4B] font-body"
+                  className="px-6 py-2 bg-gold text-white text-xs uppercase tracking-wider transition-colors hover:bg-gold-dark font-body"
                 >
                   Enquire About This Piece
                 </button>

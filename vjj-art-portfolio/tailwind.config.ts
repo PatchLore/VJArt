@@ -5,6 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./content/**/*.{md,mdx}",
   ],
   theme: {
     extend: {
@@ -42,8 +43,11 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom colors for the art portfolio
+        // Custom colors for the art portfolio - Standardized Palette
         gold: {
+          DEFAULT: "#d4af37",
+          dark: "#b59f3b",
+          light: "#f1d878",
           50: "#fefce8",
           100: "#fef3c7",
           200: "#fde68a",
@@ -55,7 +59,10 @@ const config: Config = {
           800: "#8b6f33",
           900: "#6b5b26",
         },
+        cream: "#f5f1e8",
         charcoal: {
+          DEFAULT: "#2d2d2d",
+          light: "#3e3e3e",
           50: "#f6f6f6",
           100: "#e7e7e7",
           200: "#d1d1d1",
@@ -66,6 +73,20 @@ const config: Config = {
           700: "#4f4f4f",
           800: "#454545",
           900: "#2d2d2d", // Primary charcoal
+        },
+        brown: {
+          DEFAULT: "#3e3226",
+          soft: "#6b5d4f",
+          50: "#faf8f5",
+          100: "#f5f1e8",
+          200: "#e8dcc8",
+          300: "#d4c9b8",
+          400: "#a78b3f",
+          500: "#8b7355",
+          600: "#6b5d4f",
+          700: "#5a4e3f",
+          800: "#4a3e32",
+          900: "#3e3226",
         },
       },
       fontFamily: {
@@ -98,10 +119,13 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
 
 export default config
+
 
 
 

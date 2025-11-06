@@ -2,6 +2,9 @@
 
 import Image from "next/image"
 import { useEffect } from "react"
+import FeaturedArtworks from "@/components/sections/FeaturedArtworks"
+import ResponsiveGallery from "@/components/gallery/ResponsiveGallery"
+import { artworks } from "@/data/artworks"
 
 export default function HomePage() {
   useEffect(() => {
@@ -29,322 +32,54 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div style={{ fontFamily: "'Garamond', 'Georgia', serif", background: '#f5f1e8', color: '#3e3226', lineHeight: 1.6 }}>
-      <style jsx global>{`
-        * { 
-          margin: 0; 
-          padding: 0; 
-          box-sizing: border-box; 
-        }
+    <div className="font-serif bg-cream text-brown">
 
-        body {
-          font-family: 'Garamond', 'Georgia', serif;
-          background: #f5f1e8;
-          color: #3e3226;
-          line-height: 1.6;
-        }
-      `}</style>
-
-      <header style={{
-        background: 'rgba(245, 241, 232, 0.98)',
-        padding: '1.8rem 0',
-        borderBottom: '3px solid #c9a980',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000
-      }}>
-        <nav style={{
-          maxWidth: '1200px',
-          margin: 'auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '0 2rem'
-        }}>
-          <div style={{
-            fontSize: '2.3rem',
-            color: '#6b5d4f',
-            fontStyle: 'italic',
-            letterSpacing: '2px'
-          }}>VJ Art</div>
-          <ul style={{
-            display: 'flex',
-            gap: '2rem',
-            listStyle: 'none'
-          }}>
-            <li><a href="#home" style={{
-              color: '#6b5d4f',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              position: 'relative',
-              transition: 'color 0.3s ease'
-            }}>Home</a></li>
-            <li><a href="#gallery" style={{
-              color: '#6b5d4f',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              position: 'relative',
-              transition: 'color 0.3s ease'
-            }}>Gallery</a></li>
-            <li><a href="#about" style={{
-              color: '#6b5d4f',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              position: 'relative',
-              transition: 'color 0.3s ease'
-            }}>About</a></li>
+      <header className="bg-cream/98 py-7 border-b-[3px] border-gold shadow-sm sticky top-0 z-[1000]">
+        <nav className="max-w-[1200px] mx-auto flex justify-between items-center px-8">
+          <div className="text-[2.3rem] text-brown-soft italic tracking-wide">VJ Art</div>
+          <ul className="flex gap-8 list-none">
+            <li><a href="#home" className="text-brown-soft no-underline text-lg relative transition-colors hover:text-gold">Home</a></li>
+            <li><a href="#gallery" className="text-brown-soft no-underline text-lg relative transition-colors hover:text-gold">Gallery</a></li>
+            <li><a href="#about" className="text-brown-soft no-underline text-lg relative transition-colors hover:text-gold">About</a></li>
           </ul>
         </nav>
       </header>
 
-      <section id="home" style={{
-        minHeight: '80vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        background: 'linear-gradient(to bottom, #f5f1e8, #e8dcc8)',
-        padding: '4rem 2rem'
-      }}>
+      <section id="home" className="min-h-[80vh] flex items-center justify-center text-center bg-gradient-to-b from-cream to-brown-200 py-16 px-8">
         <div>
-          <h1 style={{
-            fontSize: '4rem',
-            color: '#6b5d4f',
-            fontStyle: 'italic'
-          }}>VJ Art</h1>
-          <p style={{
-            color: '#8b7355',
-            fontSize: '1.4rem',
-            marginTop: '1rem'
-          }}>Original Oil Paintings — Inspired by Light, Nature, and Memory</p>
-          <a href="#gallery" style={{
-            display: 'inline-block',
-            marginTop: '2rem',
-            padding: '1rem 2.5rem',
-            background: '#c9a980',
-            color: '#fff',
-            textDecoration: 'none',
-            borderRadius: '3px',
-            transition: 'all 0.3s ease'
-          }}>Explore the Collection</a>
+          <h1 className="text-[4rem] text-brown-soft italic">VJ Art</h1>
+          <p className="text-brown-500 text-xl mt-4">Original Oil Paintings — Inspired by Light, Nature, and Memory</p>
+          <a href="#gallery" className="inline-block mt-8 px-10 py-4 bg-gold hover:bg-gold-dark text-white no-underline rounded transition-all">
+            Explore the Collection
+          </a>
         </div>
       </section>
 
-      <section id="gallery" style={{
-        padding: '5rem 2rem',
-        maxWidth: '1200px',
-        margin: 'auto'
-      }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          textAlign: 'center',
-          color: '#6b5d4f',
-          fontStyle: 'italic',
-          marginBottom: '3rem'
-        }}>Gallery</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2.5rem'
-        }}>
-          <div style={{
-            background: '#fff',
-            border: '8px solid #f5f1e8',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
-          }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_4741.jpg" 
-                alt="Venetian Sunrise painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
-                color: '#6b5d4f',
-                fontStyle: 'italic'
-              }}>Venetian Sunrise</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
-              }}>Soft morning light reflects on the Venetian lagoon, evoking peace and stillness.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
-                color: '#6b5d4f'
-              }}>£180 — Unframed</p>
-            </div>
-          </div>
+      <FeaturedArtworks />
 
-          <div style={{
-            background: '#fff',
-            border: '8px solid #f5f1e8',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
-          }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_4745.jpg" 
-                alt="San Giorgio Reflections painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
-                color: '#6b5d4f',
-                fontStyle: 'italic'
-              }}>San Giorgio Reflections</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
-              }}>The calm waters of Venice mirror the dome of San Giorgio Maggiore at dusk.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
-                color: '#6b5d4f'
-              }}>£180 — Unframed</p>
-            </div>
-          </div>
-
-          <div style={{
-            background: '#fff',
-            border: '8px solid #f5f1e8',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
-          }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_6431.jpg" 
-                alt="Crocuses in Mum's Cup painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
-                color: '#6b5d4f',
-                fontStyle: 'italic'
-              }}>Crocuses in Mum's Cup</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
-              }}>Delicate purple blooms emerge from a floral teacup — a gentle reflection of love and memory.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
-                color: '#6b5d4f'
-              }}>£180 — Unframed</p>
-            </div>
-          </div>
-
-          <div style={{
-            background: '#fff',
-            border: '8px solid #f5f1e8',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
-          }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_6519.jpg" 
-                alt="Evening Café Paris painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
-                color: '#6b5d4f',
-                fontStyle: 'italic'
-              }}>Evening Café, Paris</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
-              }}>A cozy Parisian café bathed in golden light — a quiet moment of city life.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
-                color: '#6b5d4f'
-              }}>£180 — Unframed</p>
-            </div>
-          </div>
+      <section id="gallery" className="py-20 px-8 max-w-[1200px] mx-auto">
+        <h2 className="text-[2.5rem] text-center text-brown-soft italic mb-12">Gallery</h2>
+        <div style={{ padding: '0 1rem' }}>
+          <ResponsiveGallery 
+            artworks={artworks} 
+          />
         </div>
       </section>
 
-      <section id="about" style={{
-        padding: '5rem 2rem',
-        maxWidth: '1200px',
-        margin: 'auto'
-      }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          textAlign: 'center',
-          color: '#6b5d4f',
-          fontStyle: 'italic',
-          marginBottom: '3rem'
-        }}>About Veronica Johnstone</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '3rem',
-          alignItems: 'center'
-        }}>
+      <section id="about" className="py-20 px-8 max-w-[1200px] mx-auto">
+        <h2 className="text-[2.5rem] text-center text-brown-soft italic mb-12">About Veronica Johnstone</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <p style={{
-              marginBottom: '1.5rem',
-              color: '#5a4e3f',
-              lineHeight: 1.8
-            }}>Art has always been my passion. From an early age, drawing and painting were my favourite subjects at school. Although I once considered art college, my parents encouraged me to pursue a more traditional career path. Nevertheless, I continued to study art through evening and part-time courses, exploring portraiture, still life, life drawing, and sculpture.</p>
-            <p style={{
-              marginBottom: '1.5rem',
-              color: '#5a4e3f',
-              lineHeight: 1.8
-            }}>In the mid-1990s, I completed a two-year part-time course at Croydon Art College, which introduced me to printing, photography, sculpture, and illustration. Later in life, I developed a deep love for plein air landscape painting — something I now try to practice every week.</p>
-            <p style={{
-              marginBottom: '1.5rem',
-              color: '#5a4e3f',
-              lineHeight: 1.8
-            }}>My artistic journey has led me to join several established art societies and groups. Since moving to West Sussex, I've become a member of the Caterham, North Weald, Dorking, Sussex Group of Artists, and East Grinstead art groups.</p>
-            <p style={{
-              marginBottom: '1.5rem',
-              color: '#5a4e3f',
-              lineHeight: 1.8
-            }}>I work primarily in oils but also enjoy experimenting with acrylics, watercolour, pastel, and charcoal. While I prefer painting directly from life, I'm equally happy to create work inspired by photographs.</p>
-            <p style={{
-              marginTop: '2rem',
-              color: '#5a4e3f',
-              lineHeight: 1.8
-            }}>
-              📧 Email: <a href="mailto:johnej@btinternet.com" style={{ color: '#6b5d4f', textDecoration: 'none' }}>johnej@btinternet.com</a><br />
-              📸 Instagram: <a href="https://instagram.com/vjj_art" target="_blank" rel="noopener noreferrer" style={{ color: '#6b5d4f', textDecoration: 'none' }}>@vjj_art</a>
+            <p className="mb-6 text-brown-700 leading-relaxed">Art has always been my passion. From an early age, drawing and painting were my favourite subjects at school. Although I once considered art college, my parents encouraged me to pursue a more traditional career path. Nevertheless, I continued to study art through evening and part-time courses, exploring portraiture, still life, life drawing, and sculpture.</p>
+            <p className="mb-6 text-brown-700 leading-relaxed">In the mid-1990s, I completed a two-year part-time course at Croydon Art College, which introduced me to printing, photography, sculpture, and illustration. Later in life, I developed a deep love for plein air landscape painting — something I now try to practice every week.</p>
+            <p className="mb-6 text-brown-700 leading-relaxed">My artistic journey has led me to join several established art societies and groups. Since moving to West Sussex, I've become a member of the Caterham, North Weald, Dorking, Sussex Group of Artists, and East Grinstead art groups.</p>
+            <p className="mb-6 text-brown-700 leading-relaxed">I work primarily in oils but also enjoy experimenting with acrylics, watercolour, pastel, and charcoal. While I prefer painting directly from life, I'm equally happy to create work inspired by photographs.</p>
+            <p className="mt-8 text-brown-700 leading-relaxed">
+              📧 Email: <a href="mailto:johnej@btinternet.com" className="text-brown-soft no-underline hover:text-gold transition-colors">johnej@btinternet.com</a><br />
+              📸 Instagram: <a href="https://instagram.com/vjj_art" target="_blank" rel="noopener noreferrer" className="text-brown-soft no-underline hover:text-gold transition-colors">@vjj_art</a>
             </p>
           </div>
-          <div style={{
-            width: '100%',
-            border: '10px solid #f5f1e8',
-            boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
-            borderRadius: '3px',
-            overflow: 'hidden'
-          }}>
+          <div className="w-full border-[10px] border-cream shadow-lg rounded overflow-hidden">
             <Image 
               src="/images/IMG_4741.jpg" 
               alt="Artist in studio painting"
@@ -356,14 +91,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer style={{
-        textAlign: 'center',
-        background: '#6b5d4f',
-        color: '#f5f1e8',
-        padding: '2.5rem',
-        marginTop: '3rem',
-        borderTop: '3px solid #c9a980'
-      }}>
+      <footer className="text-center bg-charcoal text-white py-10 mt-12 border-t-[3px] border-gold">
         <p>&copy; 2025 VJ Art — All rights reserved.</p>
       </footer>
     </div>

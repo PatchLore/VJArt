@@ -29,7 +29,7 @@ const HeroSection = () => {
         <div className="mt-10">
           <a 
             href="#gallery" 
-            className="inline-block px-8 py-4 bg-[#8B9A6B] hover:bg-[#6B7A4B] text-white font-body text-lg tracking-wide transition-colors duration-300"
+            className="inline-block px-8 py-4 bg-gold hover:bg-gold-dark text-white font-body text-lg tracking-wide transition-colors duration-300"
             style={{ backgroundColor: 'var(--sage-green)' }}
           >
             View My Work

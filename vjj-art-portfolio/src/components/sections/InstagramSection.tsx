@@ -33,17 +33,17 @@ const InstagramSection = () => {
     <section className="py-20 px-6 bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-display mb-4 text-[#3D3D3D]">
+          <h2 className="text-5xl font-display mb-4 text-brown">
             Follow My Painting Journey
           </h2>
-          <p className="text-xl font-body text-[#5A5A5A] mb-6">
+          <p className="text-xl font-body text-brown-soft mb-6">
             See works in progress, plein air sessions, and daily painting updates on Instagram
           </p>
           <a 
             href="https://instagram.com/vjj_art" 
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-[#8B9A6B] hover:bg-[#6B7A4B] text-white font-body text-base tracking-wide transition-colors"
+            className="inline-block px-8 py-3 bg-gold hover:bg-gold-dark text-white font-body text-base tracking-wide transition-colors"
           >
             @vjj_art on Instagram
           </a>

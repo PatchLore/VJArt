@@ -4,11 +4,11 @@ const BioSection = () => {
   return (
     <div id="about" className="max-w-[1400px] mx-auto px-10 py-[60px]">
       <div className="bg-white p-12 mb-[60px] rounded-sm shadow-sm animate-on-scroll">
-        <h2 className="text-5xl font-display mb-8 text-[#3D3D3D]">
+        <h2 className="text-5xl font-display mb-8 text-brown">
           About Me
         </h2>
         
-        <div className="prose prose-lg max-w-none text-[#5A5A5A] font-body leading-relaxed space-y-6">
+        <div className="prose prose-lg max-w-none text-brown-soft font-body leading-relaxed space-y-6">
           <p className="text-xl italic text-[#8B9A6B] mb-8">
             I've always enjoyed drawing and painting; art was my favourite subject in school. I considered art college, but my parents insisted on a traditional career. I attend evening classes and several part-time courses covering portraiture, still life drawing and sculpture.
           </p>
@@ -30,7 +30,7 @@ const BioSection = () => {
           </p>
           
           <p className="mt-8 pt-6 border-t border-gray-200">
-            <strong className="text-[#3D3D3D]">My approach:</strong> I believe that painting is about connection—connecting with the landscape, with light, with the moment. When I paint, I'm not just recording what I see; I'm trying to capture how it feels. The way morning mist softens the distance, how afternoon light makes colours sing, the quiet beauty of an overgrown path—these are the things that move me to paint.
+            <strong className="text-brown">My approach:</strong> I believe that painting is about connection—connecting with the landscape, with light, with the moment. When I paint, I'm not just recording what I see; I'm trying to capture how it feels. The way morning mist softens the distance, how afternoon light makes colours sing, the quiet beauty of an overgrown path—these are the things that move me to paint.
           </p>
         </div>
       </div>
