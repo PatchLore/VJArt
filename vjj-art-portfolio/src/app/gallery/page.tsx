@@ -109,12 +109,13 @@ const GalleryPage = () => {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex">
                         <div className="bg-white/90 rounded-full p-3">
                           <ZoomIn size={24} className="text-gray-900" />
                         </div>
                       </div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      {/* Desktop overlay - hidden on mobile */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 hidden md:block">
                         <h3 className="font-semibold text-lg mb-1">{artwork.title}</h3>
                         <p className="text-sm opacity-90">{artwork.medium}, {artwork.year}</p>
                         {artwork.price && (
@@ -123,6 +124,16 @@ const GalleryPage = () => {
                           </p>
                         )}
                       </div>
+                    </div>
+                    {/* Mobile caption - shown below image on mobile */}
+                    <div className="md:hidden p-4 bg-white">
+                      <h3 className="font-semibold text-lg mb-1 text-charcoal">{artwork.title}</h3>
+                      <p className="text-sm text-brown-soft mb-2">{artwork.medium}, {artwork.year}</p>
+                      {artwork.price && (
+                        <p className="text-sm font-semibold text-gold">
+                          £{artwork.price.toLocaleString()}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </motion.div>

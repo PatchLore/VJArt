@@ -5,15 +5,15 @@ import Link from "next/link"
 const Header = () => {
   return (
     <header className="bg-white/95 backdrop-blur-sm border-b border-gold/20 sticky top-0 z-[100] shadow-sm">
-      <nav className="max-w-[1400px] mx-auto px-10 py-5 flex justify-between items-center flex-col md:flex-row gap-5 md:gap-0">
+      <nav className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 py-4 md:py-5 flex justify-between items-center flex-col md:flex-row gap-4 md:gap-0">
         <Link 
           href="/" 
-          className="text-2xl font-display tracking-wider text-brown hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none focus-visible:rounded"
+          className="text-xl sm:text-2xl font-display tracking-wider text-brown hover:text-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none focus-visible:rounded text-center md:text-left"
         >
           Veronica Johnstone
         </Link>
         
-        <ul className="flex gap-9 list-none">
+        <ul className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-9 list-none">
           <li>
             <Link 
               href="/" 

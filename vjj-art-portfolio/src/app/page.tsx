@@ -141,25 +141,13 @@ export default function HomePage() {
         top: 0,
         zIndex: 1000
       }}>
-        <nav style={{
-          maxWidth: '1200px',
-          margin: 'auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '0 2rem'
-        }}>
-          <div style={{
-            fontSize: '2.3rem',
+        <nav className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-8 py-4 md:py-0 gap-4 md:gap-0">
+          <div className="text-3xl md:text-4xl text-center md:text-left" style={{
             color: '#6b5d4f',
             fontStyle: 'italic',
             letterSpacing: '2px'
           }}>VJ Art</div>
-          <ul style={{
-            display: 'flex',
-            gap: '2rem',
-            listStyle: 'none'
-          }}>
+          <ul className="flex flex-wrap justify-center gap-4 md:gap-8 list-none p-0">
             <li><a href="#home" className="nav-link" style={{
               color: '#6b5d4f',
               textDecoration: 'none',
@@ -184,30 +172,16 @@ export default function HomePage() {
         </nav>
       </header>
 
-      <section id="home" style={{
-        minHeight: '80vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        background: 'linear-gradient(to bottom, #f5f1e8, #e8dcc8)',
-        padding: '4rem 2rem'
-      }}>
-        <div>
-          <h1 style={{
-            fontSize: '4rem',
+      <section id="home" className="min-h-[80vh] flex items-center justify-center text-center bg-gradient-to-b from-cream to-cream/80 py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl" style={{
             color: '#6b5d4f',
             fontStyle: 'italic'
           }}>VJ Art</h1>
-          <p style={{
-            color: '#8b7355',
-            fontSize: '1.4rem',
-            marginTop: '1rem'
+          <p className="text-lg md:text-xl lg:text-2xl mt-4 md:mt-6" style={{
+            color: '#8b7355'
           }}>Original Oil Paintings — Inspired by Light, Nature, and Memory</p>
-          <a href="#gallery" className="cta-button" style={{
-            display: 'inline-block',
-            marginTop: '2rem',
-            padding: '1rem 2.5rem',
+          <a href="#gallery" className="cta-button inline-block mt-6 md:mt-8 px-6 md:px-10 py-3 md:py-4 text-base md:text-lg" style={{
             background: '#d4af37',
             color: '#fff',
             textDecoration: 'none',
@@ -216,22 +190,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="gallery" style={{
-        padding: '5rem 2rem',
+      <section id="gallery" className="py-12 md:py-20 px-4 md:px-8" style={{
         maxWidth: '1200px',
         margin: 'auto'
       }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          textAlign: 'center',
+        <h2 className="text-3xl md:text-4xl text-center mb-8 md:mb-12" style={{
           color: '#6b5d4f',
-          fontStyle: 'italic',
-          marginBottom: '3rem'
+          fontStyle: 'italic'
         }}>Gallery</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2.5rem'
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10" style={{
+          display: 'grid'
         }}>
           <div className="artwork-card" style={{
             background: '#fff',
@@ -241,9 +209,8 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div className="artwork-image-wrapper" style={{
+            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
               width: '100%',
-              height: '350px',
               position: 'relative',
               borderRadius: '3px',
               overflow: 'hidden'
@@ -258,20 +225,15 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
+            <div className="p-4 md:p-6 text-center">
+              <h3 className="text-lg md:text-xl" style={{
                 color: '#6b5d4f',
                 fontStyle: 'italic'
               }}>Venetian Sunrise</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
+              <p className="text-sm md:text-base mt-2" style={{
+                color: '#8b7355'
               }}>Soft morning light reflects on the Venetian lagoon, evoking peace and stillness.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
+              <p className="mt-3 font-bold" style={{
                 color: '#6b5d4f'
               }}>£180 — Unframed</p>
             </div>
@@ -285,9 +247,8 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div className="artwork-image-wrapper" style={{
+            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
               width: '100%',
-              height: '350px',
               position: 'relative',
               borderRadius: '3px',
               overflow: 'hidden'
@@ -302,20 +263,15 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
+            <div className="p-4 md:p-6 text-center">
+              <h3 className="text-lg md:text-xl" style={{
                 color: '#6b5d4f',
                 fontStyle: 'italic'
               }}>San Giorgio Reflections</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
+              <p className="text-sm md:text-base mt-2" style={{
+                color: '#8b7355'
               }}>The calm waters of Venice mirror the dome of San Giorgio Maggiore at dusk.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
+              <p className="mt-3 font-bold" style={{
                 color: '#6b5d4f'
               }}>£180 — Unframed</p>
             </div>
@@ -329,9 +285,8 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div className="artwork-image-wrapper" style={{
+            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
               width: '100%',
-              height: '350px',
               position: 'relative',
               borderRadius: '3px',
               overflow: 'hidden'
@@ -346,20 +301,15 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
+            <div className="p-4 md:p-6 text-center">
+              <h3 className="text-lg md:text-xl" style={{
                 color: '#6b5d4f',
                 fontStyle: 'italic'
               }}>Evening Café, Paris</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
+              <p className="text-sm md:text-base mt-2" style={{
+                color: '#8b7355'
               }}>A cozy Parisian café bathed in golden light — a quiet moment of city life.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
+              <p className="mt-3 font-bold" style={{
                 color: '#6b5d4f'
               }}>£180 — Unframed</p>
             </div>
@@ -373,9 +323,8 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div className="artwork-image-wrapper" style={{
+            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
               width: '100%',
-              height: '350px',
               position: 'relative',
               borderRadius: '3px',
               overflow: 'hidden'
@@ -390,20 +339,15 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            <div style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <h3 style={{
-                fontSize: '1.4rem',
+            <div className="p-4 md:p-6 text-center">
+              <h3 className="text-lg md:text-xl" style={{
                 color: '#6b5d4f',
                 fontStyle: 'italic'
               }}>Crocuses in Mum's Cup</h3>
-              <p style={{
-                color: '#8b7355',
-                fontSize: '1rem',
-                marginTop: '0.5rem'
+              <p className="text-sm md:text-base mt-2" style={{
+                color: '#8b7355'
               }}>Delicate purple blooms emerge from a floral teacup — a gentle reflection of love and memory.</p>
-              <p style={{
-                marginTop: '0.7rem',
-                fontWeight: 'bold',
+              <p className="mt-3 font-bold" style={{
                 color: '#6b5d4f'
               }}>£180 — Unframed</p>
             </div>
@@ -411,25 +355,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" style={{
-        padding: '5rem 2rem',
+      <section id="about" className="py-12 md:py-20 px-4 md:px-8" style={{
         maxWidth: '1200px',
         margin: 'auto'
       }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          textAlign: 'center',
+        <h2 className="text-3xl md:text-4xl text-center mb-8 md:mb-12" style={{
           color: '#6b5d4f',
-          fontStyle: 'italic',
-          marginBottom: '3rem'
+          fontStyle: 'italic'
         }}>About Veronica Johnstone</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '3rem',
-          alignItems: 'center'
-        }}>
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="text-center md:text-left max-w-full md:max-w-none px-4 md:px-0">
             <p style={{
               marginBottom: '1.5rem',
               color: '#5a4e3f',
