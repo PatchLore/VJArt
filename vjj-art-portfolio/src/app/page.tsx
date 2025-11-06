@@ -45,24 +45,21 @@ export default function HomePage() {
         }
 
         .artwork-image-wrapper {
-          border: 2px solid transparent;
           transition: all 0.3s ease-in-out;
         }
 
         .artwork-card:hover .artwork-image-wrapper {
-          border-color: #d4af37;
+          transform: scale(1.02);
         }
 
-        .artwork-image-wrapper > div {
-          transition: filter 0.3s ease-in-out;
-        }
-
+        .artwork-card:hover .artwork-image-wrapper img,
         .artwork-card:hover .artwork-image-wrapper > div {
           filter: brightness(1.05);
         }
 
-        .artwork-card:hover .artwork-image-wrapper img {
-          filter: brightness(1.05);
+        /* Ensure gold border on hover works with Tailwind classes */
+        .artwork-card:hover {
+          border-color: #d4af37 !important;
         }
 
         /* Navigation Link Hover Effects */
@@ -147,26 +144,22 @@ export default function HomePage() {
             fontStyle: 'italic',
             letterSpacing: '2px'
           }}>VJ Art</div>
-          <ul className="flex flex-wrap justify-center gap-4 md:gap-8 list-none p-0">
-            <li><a href="#home" className="nav-link" style={{
+          <ul className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 list-none p-0 w-full md:w-auto">
+            <li><a href="#home" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none',
-              fontSize: '1.1rem'
+              textDecoration: 'none'
             }}>Home</a></li>
-            <li><a href="/gallery" className="nav-link" style={{
+            <li><a href="/gallery" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none',
-              fontSize: '1.1rem'
+              textDecoration: 'none'
             }}>Gallery</a></li>
-            <li><a href="/blog" className="nav-link" style={{
+            <li><a href="/blog" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none',
-              fontSize: '1.1rem'
+              textDecoration: 'none'
             }}>Blog</a></li>
-            <li><a href="#about" className="nav-link" style={{
+            <li><a href="#about" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none',
-              fontSize: '1.1rem'
+              textDecoration: 'none'
             }}>About</a></li>
           </ul>
         </nav>
@@ -190,40 +183,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="gallery" className="py-12 md:py-20 px-4 md:px-8" style={{
+      <section id="gallery" className="py-8 sm:py-12 md:py-20 px-4 sm:px-6 md:px-8" style={{
         maxWidth: '1200px',
         margin: 'auto'
       }}>
-        <h2 className="text-3xl md:text-4xl text-center mb-8 md:mb-12" style={{
+        <h2 className="text-3xl md:text-4xl text-center mb-6 sm:mb-8 md:mb-12" style={{
           color: '#6b5d4f',
           fontStyle: 'italic'
         }}>Gallery</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10" style={{
-          display: 'grid'
-        }}>
-          <div className="artwork-card" style={{
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+          <div className="artwork-card group border-2 border-transparent hover:border-gold transition-all duration-300 rounded-md overflow-hidden" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
+            transition: 'transform 0.3s ease, border-color 0.3s ease'
           }}>
-            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
-              width: '100%',
-              position: 'relative',
-              borderRadius: '3px',
-              overflow: 'hidden'
-            }}>
-              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-                <Image 
-                  src="/images/IMG_4741.jpg" 
-                  alt="Venetian Sunrise painting"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  className="artwork-image"
-                />
-              </div>
+            <div className="artwork-image-wrapper w-full h-64 sm:h-72 md:h-80 lg:h-[350px] relative overflow-hidden rounded-t-md">
+              <Image 
+                src="/images/IMG_4741.jpg" 
+                alt="Venetian Sunrise painting"
+                fill
+                className="object-cover w-full h-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </div>
             <div className="p-4 md:p-6 text-center">
               <h3 className="text-lg md:text-xl" style={{
@@ -239,29 +221,20 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="artwork-card" style={{
+          <div className="artwork-card group border-2 border-transparent hover:border-gold transition-all duration-300 rounded-md overflow-hidden" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
+            transition: 'transform 0.3s ease, border-color 0.3s ease'
           }}>
-            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
-              width: '100%',
-              position: 'relative',
-              borderRadius: '3px',
-              overflow: 'hidden'
-            }}>
-              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-                <Image 
-                  src="/images/IMG_4745.jpg" 
-                  alt="San Giorgio Reflections painting"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  className="artwork-image"
-                />
-              </div>
+            <div className="artwork-image-wrapper w-full h-64 sm:h-72 md:h-80 lg:h-[350px] relative overflow-hidden rounded-t-md">
+              <Image 
+                src="/images/IMG_4745.jpg" 
+                alt="San Giorgio Reflections painting"
+                fill
+                className="object-cover w-full h-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </div>
             <div className="p-4 md:p-6 text-center">
               <h3 className="text-lg md:text-xl" style={{
@@ -277,29 +250,20 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="artwork-card" style={{
+          <div className="artwork-card group border-2 border-transparent hover:border-gold transition-all duration-300 rounded-md overflow-hidden" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
+            transition: 'transform 0.3s ease, border-color 0.3s ease'
           }}>
-            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
-              width: '100%',
-              position: 'relative',
-              borderRadius: '3px',
-              overflow: 'hidden'
-            }}>
-              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-                <Image 
-                  src="/images/IMG_6431.jpg" 
-                  alt="Evening Café Paris painting"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  className="artwork-image"
-                />
-              </div>
+            <div className="artwork-image-wrapper w-full h-64 sm:h-72 md:h-80 lg:h-[350px] relative overflow-hidden rounded-t-md">
+              <Image 
+                src="/images/IMG_6431.jpg" 
+                alt="Evening Café Paris painting"
+                fill
+                className="object-cover w-full h-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </div>
             <div className="p-4 md:p-6 text-center">
               <h3 className="text-lg md:text-xl" style={{
@@ -315,29 +279,20 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="artwork-card" style={{
+          <div className="artwork-card group border-2 border-transparent hover:border-gold transition-all duration-300 rounded-md overflow-hidden" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease',
-            overflow: 'hidden',
-            borderRadius: '3px'
+            transition: 'transform 0.3s ease, border-color 0.3s ease'
           }}>
-            <div className="artwork-image-wrapper h-64 md:h-80 lg:h-[350px]" style={{
-              width: '100%',
-              position: 'relative',
-              borderRadius: '3px',
-              overflow: 'hidden'
-            }}>
-              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-                <Image 
-                  src="/images/IMG_6519.jpg" 
-                  alt="Crocuses in Mum's Cup painting"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  className="artwork-image"
-                />
-              </div>
+            <div className="artwork-image-wrapper w-full h-64 sm:h-72 md:h-80 lg:h-[350px] relative overflow-hidden rounded-t-md">
+              <Image 
+                src="/images/IMG_6519.jpg" 
+                alt="Crocuses in Mum's Cup painting"
+                fill
+                className="object-cover w-full h-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
             </div>
             <div className="p-4 md:p-6 text-center">
               <h3 className="text-lg md:text-xl" style={{
