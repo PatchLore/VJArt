@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VJ Art - Original Oil Paintings</title>
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    body {
+      font-family: 'Garamond', 'Georgia', serif;
+      background: #f5f1e8;
+      color: #3e3226;
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    header {
+      background: rgba(245, 241, 232, 0.98);
+      padding: 1.8rem 0;
+      border-bottom: 3px solid #d4af37;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 2.3rem;
+      color: #6b5d4f;
+      font-style: italic;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: #6b5d4f;
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* Hero Section */
+    #home {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to bottom, #f5f1e8, #e8dcc8);
+      padding: 4rem 2rem;
+    }
+
+    #home h1 {
+      font-size: 4rem;
+      color: #6b5d4f;
+      font-style: italic;
+    }
+
+    #home p {
+      color: #8b7355;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      background: #d4af37;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #b59f3b;
+      transform: translateY(-2px);
+    }
+
+    /* Gallery Section */
+    #gallery {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    #gallery h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #6b5d4f;
+      font-style: italic;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .artwork-card {
+      background: #fff;
+      border: 8px solid #f5f1e8;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+
+    .artwork-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .artwork-image-wrapper {
+      width: 100%;
+      height: 350px;
+      position: relative;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .artwork-card:hover .artwork-image-wrapper {
+      border-color: #d4af37;
+    }
+
+    .artwork-image {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .artwork-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .artwork-card:hover .artwork-image img {
+      filter: brightness(1.05);
+    }
+
+    .artwork-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .artwork-info h3 {
+      font-size: 1.4rem;
+      color: #6b5d4f;
+      font-style: italic;
+    }
+
+    .artwork-info p {
+      color: #8b7355;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .artwork-price {
+      margin-top: 0.7rem;
+      font-weight: bold;
+      color: #6b5d4f;
+    }
+
+    /* About Section */
+    #about {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    #about h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #6b5d4f;
+      font-style: italic;
+      margin-bottom: 3rem;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: #5a4e3f;
+      line-height: 1.8;
+    }
+
+    .about-text a {
+      color: #6b5d4f;
+      text-decoration: none;
+    }
+
+    .about-text a:hover {
+      color: #d4af37;
+    }
+
+    .about-image {
+      width: 100%;
+      border: 10px solid #f5f1e8;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #2d2d2d;
+      color: #f5f1e8;
+      padding: 2.5rem;
+      margin-top: 3rem;
+      border-top: 3px solid #d4af37;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      #home h1 {
+        font-size: 2.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">VJ Art</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div>
+      <h1>VJ Art</h1>
+      <p>Original Oil Paintings — Inspired by Light, Nature, and Memory</p>
+      <a href="#gallery" class="cta-button">Explore the Collection</a>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <!-- Artwork Card 1 -->
+      <div class="artwork-card">
+        <div class="artwork-image-wrapper">
+          <div class="artwork-image">
+            <img src="/images/IMG_4741.jpg" alt="Venetian Sunrise painting">
+          </div>
+        </div>
+        <div class="artwork-info">
+          <h3>Venetian Sunrise</h3>
+          <p>Soft morning light reflects on the Venetian lagoon, evoking peace and stillness.</p>
+          <p class="artwork-price">£180 — Unframed</p>
+        </div>
+      </div>
+
+      <!-- Artwork Card 2 -->
+      <div class="artwork-card">
+        <div class="artwork-image-wrapper">
+          <div class="artwork-image">
+            <img src="/images/IMG_4745.jpg" alt="San Giorgio Reflections painting">
+          </div>
+        </div>
+        <div class="artwork-info">
+          <h3>San Giorgio Reflections</h3>
+          <p>The calm waters of Venice mirror the dome of San Giorgio Maggiore at dusk.</p>
+          <p class="artwork-price">£180 — Unframed</p>
+        </div>
+      </div>
+
+      <!-- Artwork Card 3 -->
+      <div class="artwork-card">
+        <div class="artwork-image-wrapper">
+          <div class="artwork-image">
+            <img src="/images/IMG_6431.jpg" alt="Evening Café Paris painting">
+          </div>
+        </div>
+        <div class="artwork-info">
+          <h3>Evening Café, Paris</h3>
+          <p>A cozy Parisian café bathed in golden light — a quiet moment of city life.</p>
+          <p class="artwork-price">£180 — Unframed</p>
+        </div>
+      </div>
+
+      <!-- Artwork Card 4 -->
+      <div class="artwork-card">
+        <div class="artwork-image-wrapper">
+          <div class="artwork-image">
+            <img src="/images/IMG_6519.jpg" alt="Crocuses in Mum's Cup painting">
+          </div>
+        </div>
+        <div class="artwork-info">
+          <h3>Crocuses in Mum's Cup</h3>
+          <p>Delicate purple blooms emerge from a floral teacup — a gentle reflection of love and memory.</p>
+          <p class="artwork-price">£180 — Unframed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Veronica Johnstone</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Art has always been my passion. From an early age, drawing and painting were my favourite subjects at school. Although I once considered art college, my parents encouraged me to pursue a more traditional career path. Nevertheless, I continued to study art through evening and part-time courses, exploring portraiture, still life, life drawing, and sculpture.</p>
+        <p>In the mid-1990s, I completed a two-year part-time course at Croydon Art College, which introduced me to printing, photography, sculpture, and illustration. Later in life, I developed a deep love for plein air landscape painting — something I now try to practice every week.</p>
+        <p>My artistic journey has led me to join several established art societies and groups. Since moving to West Sussex, I've become a member of the Caterham, North Weald, Dorking, Sussex Group of Artists, and East Grinstead art groups.</p>
+        <p>I work primarily in oils but also enjoy experimenting with acrylics, watercolour, pastel, and charcoal. While I prefer painting directly from life, I'm equally happy to create work inspired by photographs.</p>
+        <p style="margin-top: 2rem;">
+          📧 Email: <a href="mailto:johnej@btinternet.com">johnej@btinternet.com</a><br>
+          📸 Instagram: <a href="https://instagram.com/vjj_art" target="_blank" rel="noopener noreferrer">@vjj_art</a>
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="/images/IMG_4741.jpg" alt="Artist in studio painting">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 VJ Art — All rights reserved.</p>
+  </footer>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offset = 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

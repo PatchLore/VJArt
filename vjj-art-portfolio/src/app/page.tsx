@@ -43,6 +43,27 @@ export default function HomePage() {
           color: #3e3226;
           line-height: 1.6;
         }
+
+        .artwork-image-wrapper {
+          border: 2px solid transparent;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .artwork-card:hover .artwork-image-wrapper {
+          border-color: #d4af37;
+        }
+
+        .artwork-image-wrapper > div {
+          transition: filter 0.3s ease-in-out;
+        }
+
+        .artwork-card:hover .artwork-image-wrapper > div {
+          filter: brightness(1.05);
+        }
+
+        .artwork-card:hover .artwork-image-wrapper img {
+          filter: brightness(1.05);
+        }
       `}</style>
 
       <header style={{
@@ -148,7 +169,7 @@ export default function HomePage() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '2.5rem'
         }}>
-          <div style={{
+          <div className="artwork-card" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
@@ -156,13 +177,22 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_4741.jpg" 
-                alt="Venetian Sunrise painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
+            <div className="artwork-image-wrapper" style={{
+              width: '100%',
+              height: '350px',
+              position: 'relative',
+              borderRadius: '3px',
+              overflow: 'hidden'
+            }}>
+              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                <Image 
+                  src="/images/IMG_4741.jpg" 
+                  alt="Venetian Sunrise painting"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="artwork-image"
+                />
+              </div>
             </div>
             <div style={{ padding: '1.5rem', textAlign: 'center' }}>
               <h3 style={{
@@ -183,7 +213,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div style={{
+          <div className="artwork-card" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
@@ -191,13 +221,22 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_4745.jpg" 
-                alt="San Giorgio Reflections painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
+            <div className="artwork-image-wrapper" style={{
+              width: '100%',
+              height: '350px',
+              position: 'relative',
+              borderRadius: '3px',
+              overflow: 'hidden'
+            }}>
+              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                <Image 
+                  src="/images/IMG_4745.jpg" 
+                  alt="San Giorgio Reflections painting"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="artwork-image"
+                />
+              </div>
             </div>
             <div style={{ padding: '1.5rem', textAlign: 'center' }}>
               <h3 style={{
@@ -218,7 +257,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div style={{
+          <div className="artwork-card" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
@@ -226,13 +265,22 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_6431.jpg" 
-                alt="Evening Café Paris painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
+            <div className="artwork-image-wrapper" style={{
+              width: '100%',
+              height: '350px',
+              position: 'relative',
+              borderRadius: '3px',
+              overflow: 'hidden'
+            }}>
+              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                <Image 
+                  src="/images/IMG_6431.jpg" 
+                  alt="Evening Café Paris painting"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="artwork-image"
+                />
+              </div>
             </div>
             <div style={{ padding: '1.5rem', textAlign: 'center' }}>
               <h3 style={{
@@ -253,7 +301,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div style={{
+          <div className="artwork-card" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
@@ -261,13 +309,22 @@ export default function HomePage() {
             overflow: 'hidden',
             borderRadius: '3px'
           }}>
-            <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-              <Image 
-                src="/images/IMG_6519.jpg" 
-                alt="Crocuses in Mum's Cup painting"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
+            <div className="artwork-image-wrapper" style={{
+              width: '100%',
+              height: '350px',
+              position: 'relative',
+              borderRadius: '3px',
+              overflow: 'hidden'
+            }}>
+              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                <Image 
+                  src="/images/IMG_6519.jpg" 
+                  alt="Crocuses in Mum's Cup painting"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="artwork-image"
+                />
+              </div>
             </div>
             <div style={{ padding: '1.5rem', textAlign: 'center' }}>
               <h3 style={{
