@@ -21,21 +21,23 @@ export default async function BlogPage() {
   return (
     <div className="min-h-screen bg-cream">
       <Header />
-      <main className="pt-20 pb-12">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-display mb-6">
+      <main className="pt-20 pb-12 bg-cream text-charcoal">
+        {/* Header Section */}
+        <section className="text-center py-12 px-4 border-b border-gold/20">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-display mb-4 text-charcoal">
               Artist Journal
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-brown-soft max-w-2xl mx-auto">
               Stories from the studio, plein air adventures, and the inspiration behind the artwork.
             </p>
           </div>
         </section>
 
-        {/* Blog List */}
-        <BlogList posts={posts} allTags={allTags} />
+        {/* Blog List Section */}
+        <section className="py-8">
+          <BlogList posts={posts} allTags={allTags} />
+        </section>
       </main>
       <Footer />
     </div>
