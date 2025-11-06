@@ -94,6 +94,82 @@ export default function HomePage() {
           width: 100%;
         }
 
+        /* Mobile Navigation Spacing - Force spacing on mobile */
+        @media (max-width: 640px) {
+          nav ul {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 1rem !important;
+            padding: 0.5rem 0 !important;
+            width: 100% !important;
+          }
+          
+          nav ul li {
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          
+          nav ul li a {
+            display: inline-block !important;
+            padding: 0.5rem 0.75rem !important;
+            margin: 0 !important;
+            font-size: 1rem !important;
+          }
+
+          /* Gallery mobile fixes */
+          #gallery-grid,
+          #gallery .grid,
+          section#gallery > div.grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            padding: 0 1rem !important;
+          }
+
+          .artwork-card {
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+
+          .artwork-image-wrapper {
+            width: 100% !important;
+            height: 280px !important;
+            min-height: 280px !important;
+          }
+
+          .artwork-image-wrapper img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+          }
+        }
+
+        /* Tablet and up */
+        @media (min-width: 641px) {
+          nav ul {
+            gap: 1.5rem !important;
+          }
+        }
+
+        @media (min-width: 768px) {
+          #gallery-grid,
+          #gallery .grid,
+          section#gallery > div.grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 2rem !important;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          #gallery-grid,
+          #gallery .grid,
+          section#gallery > div.grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 2.5rem !important;
+          }
+        }
+
         /* Button Hover Effects */
         .cta-button {
           transition: all 0.3s ease;
@@ -144,22 +220,38 @@ export default function HomePage() {
             fontStyle: 'italic',
             letterSpacing: '2px'
           }}>VJ Art</div>
-          <ul className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 list-none p-0 w-full md:w-auto">
-            <li><a href="#home" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
+          <ul className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 list-none p-0 w-full md:w-auto" style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '1rem',
+            listStyle: 'none',
+            padding: '0.5rem 0',
+            width: '100%'
+          }}>
+            <li style={{ margin: 0, padding: 0 }}><a href="#home" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              display: 'inline-block',
+              padding: '0.5rem 0.75rem'
             }}>Home</a></li>
-            <li><a href="/gallery" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
+            <li style={{ margin: 0, padding: 0 }}><a href="/gallery" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              display: 'inline-block',
+              padding: '0.5rem 0.75rem'
             }}>Gallery</a></li>
-            <li><a href="/blog" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
+            <li style={{ margin: 0, padding: 0 }}><a href="/blog" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              display: 'inline-block',
+              padding: '0.5rem 0.75rem'
             }}>Blog</a></li>
-            <li><a href="#about" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
+            <li style={{ margin: 0, padding: 0 }}><a href="#about" className="nav-link text-base hover:text-gold transition-colors duration-300" style={{
               color: '#6b5d4f',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              display: 'inline-block',
+              padding: '0.5rem 0.75rem'
             }}>About</a></li>
           </ul>
         </nav>
@@ -191,7 +283,7 @@ export default function HomePage() {
           color: '#6b5d4f',
           fontStyle: 'italic'
         }}>Gallery</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+        <div id="gallery-grid" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           <div className="artwork-card group border-2 border-transparent hover:border-gold transition-all duration-300 rounded-md overflow-hidden" style={{
             background: '#fff',
             border: '8px solid #f5f1e8',
