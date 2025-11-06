@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { getAllPosts, getAllTags } from "@/lib/posts"
 import BlogList from "@/components/blog/BlogList"
 import Header from "@/components/layout/Header"
