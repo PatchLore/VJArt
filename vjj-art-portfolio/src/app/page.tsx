@@ -64,6 +64,72 @@ export default function HomePage() {
         .artwork-card:hover .artwork-image-wrapper img {
           filter: brightness(1.05);
         }
+
+        /* Navigation Link Hover Effects */
+        nav a {
+          position: relative;
+          transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+          color: #d4af37;
+        }
+
+        nav a:focus-visible {
+          outline: 2px solid #d4af37;
+          outline-offset: 4px;
+          border-radius: 2px;
+        }
+
+        /* Optional underline effect on hover */
+        nav a::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 0;
+          height: 2px;
+          background-color: #d4af37;
+          transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+          width: 100%;
+        }
+
+        /* Button Hover Effects */
+        .cta-button {
+          transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+          background: #b59f3b;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:focus-visible {
+          outline: 2px solid #d4af37;
+          outline-offset: 4px;
+        }
+
+        /* Text Link Hover Effects */
+        a[href^="mailto:"],
+        a[href^="http"] {
+          transition: color 0.3s ease;
+        }
+
+        a[href^="mailto:"]:hover,
+        a[href^="http"]:hover {
+          color: #d4af37;
+        }
+
+        a[href^="mailto:"]:focus-visible,
+        a[href^="http"]:focus-visible {
+          outline: 2px solid #d4af37;
+          outline-offset: 2px;
+          border-radius: 2px;
+        }
       `}</style>
 
       <header style={{
@@ -94,26 +160,20 @@ export default function HomePage() {
             gap: '2rem',
             listStyle: 'none'
           }}>
-            <li><a href="#home" style={{
+            <li><a href="#home" className="nav-link" style={{
               color: '#6b5d4f',
               textDecoration: 'none',
-              fontSize: '1.1rem',
-              position: 'relative',
-              transition: 'color 0.3s ease'
+              fontSize: '1.1rem'
             }}>Home</a></li>
-            <li><a href="#gallery" style={{
+            <li><a href="#gallery" className="nav-link" style={{
               color: '#6b5d4f',
               textDecoration: 'none',
-              fontSize: '1.1rem',
-              position: 'relative',
-              transition: 'color 0.3s ease'
+              fontSize: '1.1rem'
             }}>Gallery</a></li>
-            <li><a href="#about" style={{
+            <li><a href="#about" className="nav-link" style={{
               color: '#6b5d4f',
               textDecoration: 'none',
-              fontSize: '1.1rem',
-              position: 'relative',
-              transition: 'color 0.3s ease'
+              fontSize: '1.1rem'
             }}>About</a></li>
           </ul>
         </nav>
@@ -139,15 +199,14 @@ export default function HomePage() {
             fontSize: '1.4rem',
             marginTop: '1rem'
           }}>Original Oil Paintings — Inspired by Light, Nature, and Memory</p>
-          <a href="#gallery" style={{
+          <a href="#gallery" className="cta-button" style={{
             display: 'inline-block',
             marginTop: '2rem',
             padding: '1rem 2.5rem',
             background: '#d4af37',
             color: '#fff',
             textDecoration: 'none',
-            borderRadius: '3px',
-            transition: 'all 0.3s ease'
+            borderRadius: '3px'
           }}>Explore the Collection</a>
         </div>
       </section>

@@ -25,10 +25,10 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
           <div className="flex flex-wrap gap-3 justify-center">
             <button
               onClick={() => setSelectedTag(null)}
-              className={`px-4 py-2 rounded-md text-sm font-body transition-colors ${
+              className={`px-4 py-2 rounded-md text-sm font-body transition-all duration-300 ${
                 selectedTag === null
-                  ? "bg-gold text-white"
-                  : "bg-white border border-gold text-brown hover:bg-gold/10"
+                  ? "bg-gold text-white hover:bg-gold-dark focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
+                  : "bg-white border border-gold text-brown hover:bg-gold hover:text-white focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
               }`}
             >
               All Posts
@@ -37,10 +37,10 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-4 py-2 rounded-md text-sm font-body transition-colors ${
+                className={`px-4 py-2 rounded-md text-sm font-body transition-all duration-300 ${
                   selectedTag === tag
-                    ? "bg-gold text-white"
-                    : "bg-white border border-gold text-brown hover:bg-gold/10"
+                    ? "bg-gold text-white hover:bg-gold-dark focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
+                    : "bg-white border border-gold text-brown hover:bg-gold hover:text-white focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
                 }`}
               >
                 {tag}
@@ -56,7 +56,7 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-gold"
+            className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-gold focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none"
           >
             <div className="relative h-64 overflow-hidden">
               <Image
@@ -97,7 +97,7 @@ const BlogList = ({ posts, allTags }: BlogListProps) => {
                     day: "numeric",
                   })}
                 </time>
-                <span className="text-gold text-sm font-body group-hover:text-gold-dark transition-colors">
+                <span className="text-gold text-sm font-body group-hover:text-gold-dark transition-colors duration-300">
                   Read More →
                 </span>
               </div>

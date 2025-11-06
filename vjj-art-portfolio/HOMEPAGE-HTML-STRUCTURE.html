@@ -63,6 +63,28 @@
       color: #d4af37;
     }
 
+    nav a:focus-visible {
+      outline: 2px solid #d4af37;
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    /* Underline effect on hover */
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: #d4af37;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
     /* Hero Section */
     #home {
       min-height: 80vh;
@@ -100,6 +122,30 @@
     .cta-button:hover {
       background: #b59f3b;
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    }
+
+    .cta-button:focus-visible {
+      outline: 2px solid #d4af37;
+      outline-offset: 4px;
+    }
+
+    /* Text Link Hover Effects */
+    a[href^="mailto:"],
+    a[href^="http"] {
+      transition: color 0.3s ease;
+    }
+
+    a[href^="mailto:"]:hover,
+    a[href^="http"]:hover {
+      color: #d4af37;
+    }
+
+    a[href^="mailto:"]:focus-visible,
+    a[href^="http"]:focus-visible {
+      outline: 2px solid #d4af37;
+      outline-offset: 2px;
+      border-radius: 2px;
     }
 
     /* Gallery Section */

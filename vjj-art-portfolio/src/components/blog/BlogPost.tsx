@@ -14,7 +14,7 @@ const BlogPost = ({ post }: BlogPostProps) => {
       {/* Back to Blog Link */}
       <Link
         href="/blog"
-        className="inline-flex items-center text-gold hover:text-gold-dark mb-8 transition-colors font-body"
+        className="inline-flex items-center text-gold hover:text-gold-dark mb-8 transition-colors duration-300 font-body focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none focus-visible:rounded"
       >
         ← Back to Blog
       </Link>
@@ -61,7 +61,7 @@ const BlogPost = ({ post }: BlogPostProps) => {
 
       {/* Content */}
       <div
-        className="prose prose-lg max-w-none prose-headings:text-charcoal prose-headings:font-display prose-p:text-brown prose-p:font-body prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-strong:text-charcoal prose-blockquote:border-gold prose-blockquote:text-brown-soft"
+        className="prose prose-lg max-w-none prose-headings:text-charcoal prose-headings:font-display prose-p:text-brown prose-p:font-body prose-p:leading-relaxed prose-a:text-gold prose-a:no-underline hover:prose-a:text-gold-dark hover:prose-a:underline prose-a:transition-colors prose-a:duration-300 prose-strong:text-charcoal prose-blockquote:border-gold prose-blockquote:text-brown-soft"
         dangerouslySetInnerHTML={{ __html: post.contentHtml || "" }}
       />
 
@@ -69,7 +69,7 @@ const BlogPost = ({ post }: BlogPostProps) => {
       <footer className="mt-12 pt-8 border-t border-gold/20">
         <Link
           href="/blog"
-          className="inline-flex items-center text-gold hover:text-gold-dark transition-colors font-body"
+          className="inline-flex items-center text-gold hover:text-gold-dark transition-colors duration-300 font-body focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none focus-visible:rounded"
         >
           ← Back to Blog
         </Link>
