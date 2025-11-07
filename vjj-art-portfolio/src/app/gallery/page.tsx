@@ -29,6 +29,19 @@ const GalleryPage = () => {
     (artwork) => filter === "all" || artwork.category === filter
   )
 
+  if (!filteredArtworks || filteredArtworks.length === 0) {
+    return (
+      <div className="min-h-screen pt-16">
+        <section className="py-20 bg-gradient-to-br from-charcoal-900 via-charcoal-800 to-charcoal-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 font-serif">Gallery</h1>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">No artworks available.</p>
+          </div>
+        </section>
+      </div>
+    )
+  }
+
   const openLightbox = (artwork: any) => {
     setSelectedArtwork(artwork)
   }
@@ -83,9 +96,9 @@ const GalleryPage = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-12">
+      <section className="py-12 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <AnimatePresence>
               {filteredArtworks.map((artwork, index) => (
                 <motion.div
@@ -99,18 +112,18 @@ const GalleryPage = () => {
                   onClick={() => openLightbox(artwork)}
                   tabIndex={0}
                 >
-                  <div className="border-2 border-transparent transition-all duration-300 ease-in-out hover:border-gold focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none rounded-md overflow-hidden">
-                    <div className="aspect-[4/5] relative overflow-hidden">
+                  <div className="border-2 border-transparent transition-all duration-300 ease-in-out hover:border-gold focus-visible:ring-2 focus-visible:ring-gold focus-visible:outline-none rounded-md overflow-hidden bg-white shadow-md hover:shadow-lg">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden">
                       <Image
                         src={artwork.image}
                         alt={artwork.title}
                         fill
-                        className="object-cover transition-all duration-300 group-hover:brightness-105"
+                        className="object-cover transition-all duration-300 group-hover:brightness-105 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex">
-                        <div className="bg-white/90 rounded-full p-3">
+                        <div className="bg-white/90 rounded-full p-3 shadow-lg">
                           <ZoomIn size={24} className="text-gray-900" />
                         </div>
                       </div>
@@ -160,19 +173,20 @@ const GalleryPage = () => {
               className="max-w-4xl w-full max-h-[90vh] bg-white rounded-lg overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 h-full max-h-[90vh]">
                 {/* Image */}
-                <div className="aspect-square lg:aspect-auto relative bg-gray-100">
+                <div className="relative bg-gray-100 min-h-[300px] lg:min-h-0 lg:h-full">
                   <Image
                     src={selectedArtwork.image}
                     alt={selectedArtwork.title}
                     fill
-                    className="object-contain"
+                    className="object-contain p-4"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <button
                     onClick={closeLightbox}
-                    className="absolute top-4 right-4 z-10 bg-white/90 rounded-full p-2 hover:bg-white transition-colors"
+                    className="absolute top-4 right-4 z-10 bg-white/90 rounded-full p-2 hover:bg-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+                    aria-label="Close lightbox"
                   >
                     <X size={20} />
                   </button>
