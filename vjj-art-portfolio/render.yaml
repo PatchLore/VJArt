@@ -3,8 +3,25 @@ services:
     name: vjj-art-portfolio
     env: node
     plan: free
-    buildCommand: npm install --legacy-peer-deps && npm run build
-    startCommand: npm start
+    buildCommand: |
+      if [ -f "package.json" ]; then
+        npm install --legacy-peer-deps && npm run build
+      elif [ -f "../package.json" ]; then
+        cd .. && npm install --legacy-peer-deps && npm run build
+      else
+        echo "Error: package.json not found in current or parent directory"
+        exit 1
+      fi
+    startCommand: |
+      if [ -f "package.json" ]; then
+        npm start
+      elif [ -f "../package.json" ]; then
+        cd .. && npm start
+      else
+        echo "Error: package.json not found"
+        exit 1
+      fi
+    healthCheckPath: /
     envVars:
       - key: NODE_VERSION
         value: 20.x
@@ -14,4 +31,3 @@ services:
         sync: false
       - key: NEXTAUTH_SECRET
         sync: false
-
