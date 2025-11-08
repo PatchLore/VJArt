@@ -1,7 +1,7 @@
 import Header from "@/components/Header"
 import Image from "next/image"
-
-const artworks: Array<{ title: string; image: string }> = []
+import Link from "next/link"
+import { artworks } from "@/lib/artworks"
 
 export default function Gallery() {
   return (
@@ -9,8 +9,9 @@ export default function Gallery() {
       <Header />
       <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {artworks.map((art) => (
-          <div
-            key={art.title}
+          <Link
+            key={art.slug}
+            href={`/gallery/${art.slug}`}
             className="group border border-transparent hover:border-gold transition-all duration-500 rounded-xl overflow-hidden"
           >
             <div className="relative w-full aspect-[4/3]">
@@ -22,7 +23,7 @@ export default function Gallery() {
               />
             </div>
             <p className="mt-3 text-center font-serif">{art.title}</p>
-          </div>
+          </Link>
         ))}
       </section>
     </main>
