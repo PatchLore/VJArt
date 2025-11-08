@@ -4,11 +4,15 @@ import { artworks } from "@/lib/artworks"
 import { notFound } from "next/navigation"
 
 export function generateStaticParams() {
-  return artworks.map((art) => ({ slug: art.slug }))
+  return artworks
+    .filter((art) => art && art.slug)
+    .map((art) => ({ slug: art.slug }))
 }
 
 export default function ArtworkPage({ params }: { params: { slug: string } }) {
-  const art = artworks.find((item) => item.slug.toLowerCase() === params.slug.toLowerCase())
+  const art = artworks.find(
+    (item) => item?.slug?.toLowerCase() === params.slug.toLowerCase()
+  )
 
   if (!art) {
     return notFound()
