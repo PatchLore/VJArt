@@ -1,10 +1,9 @@
 import Header from "@/components/Header"
-import { getAllArtworks } from "@/lib/getArtwork"
+import { artworks } from "@/lib/artworks"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function Gallery() {
-  const artworks = getAllArtworks()
 
   return (
     <main className="bg-cream text-brown min-h-screen">

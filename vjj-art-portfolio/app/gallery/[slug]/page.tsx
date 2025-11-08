@@ -1,15 +1,15 @@
 import Header from "@/components/Header"
-import { getAllArtworks, getArtworkBySlug } from "@/lib/getArtwork"
+import { artworks } from "@/lib/artworks"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
 export function generateStaticParams() {
-  return getAllArtworks().map((art) => ({ slug: art.slug }))
+  return artworks.map((art) => ({ slug: art.slug }))
 }
 
 export default function ArtworkPage({ params }: { params: { slug: string } }) {
-  const art = getArtworkBySlug(params.slug)
+  const art = artworks.find((item) => item.slug === params.slug)
 
   if (!art) {
     return notFound()

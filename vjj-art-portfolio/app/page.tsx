@@ -1,11 +1,12 @@
 import Header from "@/components/Header"
-import { getAllArtworks } from "@/lib/getArtwork"
+import { artworks } from "@/lib/artworks"
 import Image from "next/image"
 import Link from "next/link"
 
+const FEATURED_SLUGS = ["crocuses-in-mums-cup", "venetian-sunrise"]
+
 export default function Home() {
-  const artworks = getAllArtworks()
-  const featured = artworks.slice(0, 3)
+  const featured = artworks.filter((art) => FEATURED_SLUGS.includes(art.slug))
 
   return (
     <main className="bg-cream text-brown min-h-screen">
