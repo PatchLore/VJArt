@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply bg-cream text-brown font-sans;
+  background-color: #f5f1e8;
+  color: #3e3226;
+  font-family: 'Inter', sans-serif;
 }
 
 a {
-  @apply transition-colors duration-300 hover:text-gold;
+  transition: color 300ms ease;
+}
+
+a:hover {
+  color: #d4af37;
 }
