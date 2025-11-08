@@ -1,12 +1,14 @@
 import Header from "@/components/Header"
-import { artworks } from "@/lib/artworks"
+import { artworks, type Artwork } from "@/lib/artworks"
 import Image from "next/image"
 import Link from "next/link"
 
-const FEATURED_SLUGS = ["crocuses-in-mums-cup", "venetian-sunrise"]
+const FEATURED_SLUGS = ["evening-cafe-paris", "venetian-sunrise", "crocuses-in-mums-cup"]
 
 export default function Home() {
-  const featured = artworks.filter((art) => FEATURED_SLUGS.includes(art.slug))
+  const featured: Artwork[] = FEATURED_SLUGS.map(
+    (slug) => artworks.find((art) => art.slug === slug)
+  ).filter((art): art is Artwork => Boolean(art))
 
   return (
     <main className="bg-cream text-brown min-h-screen">

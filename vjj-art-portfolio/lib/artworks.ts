@@ -11,19 +11,11 @@ export interface Artwork {
 
 export const artworks: Artwork[] = [
   {
-    slug: "evening-light-in-sussex",
-    title: "Evening Light in Sussex",
-    image: "/images/sussex.jpg",
-    description:
-      "A quick plein air study under fading light in West Sussex, capturing the golden hour as it transforms the landscape.",
-    tags: ["plein air", "landscape", "oil"],
-  },
-  {
     slug: "venetian-sunrise",
     title: "Venetian Sunrise",
-    image: "/images/IMG_4741.jpg",
+    image: "/images/venice.jpg",
     description:
-      "Soft morning light reflects on the Venetian lagoon, evoking peace and stillness.",
+      "Painting the Venetian lagoon at sunrise, where soft morning light breaks through the haze and scatters golden reflections across calm waters.",
     tags: ["travel", "landscape", "oil"],
   },
   {
@@ -37,7 +29,7 @@ export const artworks: Artwork[] = [
   {
     slug: "evening-cafe-paris",
     title: "Evening Café, Paris",
-    image: "/images/IMG_6431.jpg",
+    image: "/images/evening-cafe.jpg",
     description:
       "A cozy Parisian café bathed in golden light — a quiet moment of city life.",
     tags: ["city", "nocturne", "oil"],
@@ -45,7 +37,7 @@ export const artworks: Artwork[] = [
   {
     slug: "crocuses-in-mums-cup",
     title: "Crocuses in Mum's Cup",
-    image: "/images/IMG_6519.jpg",
+    image: "/images/crocuses.jpg",
     description:
       "Delicate purple blooms emerge from a floral teacup — a gentle reflection of love and memory.",
     tags: ["still life", "flowers", "oil"],
