@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cream text-brown font-sans;
+}
+
+a {
+  @apply transition-colors duration-300 hover:text-gold;
+}
