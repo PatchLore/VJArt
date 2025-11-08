@@ -1,66 +1,15 @@
 import type { Metadata } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: "--font-inter",
-})
-
-const playfair = Playfair_Display({ 
-  subsets: ["latin"],
-  variable: "--font-playfair",
-})
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
 
 export const metadata: Metadata = {
-  title: "Veronica Johnstone - Artist Portfolio",
-  description: "Landscape & Still Life Painting. Original artwork in oils, acrylics, watercolour, pastel and charcoal. Inspired by the beauty of nature and created through plein air painting and studio work.",
-  keywords: "landscape painting, still life, oil paintings, watercolour, pastel, charcoal, plein air, Veronica Johnstone, art portfolio",
-  authors: [{ name: "Veronica Johnstone" }],
-  creator: "Veronica Johnstone",
-  publisher: "Veronica Johnstone",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://vjjart.com"),
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "Veronica Johnstone - Artist Portfolio",
-    description: "Landscape & Still Life Painting. Original artwork in oils, acrylics, watercolour, pastel and charcoal.",
-    url: "https://vjjart.com",
-    siteName: "Veronica Johnstone",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Veronica Johnstone - Artist Portfolio",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Veronica Johnstone - Artist Portfolio",
-    description: "Landscape & Still Life Painting. Original artwork in oils, acrylics, watercolour, pastel and charcoal.",
-    images: ["/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  title: "VJ Art | Landscape Oil Paintings",
+  description: "A refined gallery of oil landscape paintings by Veronica Johnstone.",
 }
 
 export default function RootLayout({
@@ -70,14 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#d4af37" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-      </head>
-      <body className="font-sans antialiased">
-        {children}
+      <body className="bg-cream text-brown font-sans antialiased">
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1 px-4 py-12 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-6xl">{children}</div>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   )
