@@ -4,15 +4,27 @@ import { artworks } from "@/lib/artworks"
 import { notFound } from "next/navigation"
 
 export function generateStaticParams() {
-  return artworks
-    .filter((art) => art && art.slug)
-    .map((art) => ({ slug: art.slug }))
+  return artworks.map((art) => ({ slug: art.slug }))
 }
 
-export default function ArtworkPage({ params }: { params: { slug: string } }) {
-  const art = artworks.find(
-    (item) => item?.slug?.toLowerCase() === params.slug.toLowerCase()
-  )
+type ArtworkParams = { slug?: string | string[] }
+
+export default async function ArtworkPage({ params }: { params: Promise<ArtworkParams> }) {
+  const resolvedParams = await params
+  const rawSlug = Array.isArray(resolvedParams?.slug)
+    ? resolvedParams?.slug[0]
+    : resolvedParams?.slug
+  const slug = rawSlug ? decodeURIComponent(rawSlug).toLowerCase() : undefined
+
+  if (process.env.NODE_ENV !== "production") {
+    console.log("[ArtworkPage] params:", resolvedParams, "resolved slug:", slug)
+  }
+
+  if (!slug) {
+    return notFound()
+  }
+
+  const art = artworks.find((item) => item?.slug?.toLowerCase() === slug)
 
   if (!art) {
     return notFound()
