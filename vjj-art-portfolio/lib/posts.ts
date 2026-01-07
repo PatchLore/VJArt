@@ -10,6 +10,7 @@ export interface Post {
   date: string
   excerpt: string
   content: string
+  featuredImage?: string
 }
 
 export function getAllPosts(): Post[] {
@@ -32,6 +33,7 @@ export function getAllPosts(): Post[] {
         date: data.date || "",
         excerpt: data.excerpt || "",
         content,
+        featuredImage: data.featuredImage || undefined,
       }
     })
 

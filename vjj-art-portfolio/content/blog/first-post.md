@@ -2,6 +2,7 @@
 title: Painting Outdoors
 date: 2026-01-07
 excerpt: Some thoughts on working outside, observing light, and responding to the landscape as it changes.
+featuredImage: "/images/placeholder-blog.jpg"
 ---
 
 Painting outdoors has always felt like a conversation rather than a plan.

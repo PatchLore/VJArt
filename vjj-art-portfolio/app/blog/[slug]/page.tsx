@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Header from "@/components/Header"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import ReactMarkdown from "react-markdown"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts"
@@ -75,6 +76,17 @@ export default async function PostPage({
           >
             ← Back to Blog
           </Link>
+          {post.featuredImage && (
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-gold/30 shadow-lg mb-8 bg-white/50">
+              <Image
+                src={post.featuredImage}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
           <h1 className="text-4xl font-serif mb-4">{post.title}</h1>
           {post.date && (
             <p className="text-sm text-brown/60">
