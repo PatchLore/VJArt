@@ -77,15 +77,14 @@ export default async function PostPage({
             ← Back to Blog
           </Link>
           {post.featuredImage && (
-            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-gold/30 shadow-lg mb-8 bg-white/50">
-              <Image
-                src={post.featuredImage}
-                alt={post.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+            <Image
+              src={post.featuredImage}
+              alt={post.title}
+              width={1200}
+              height={800}
+              priority
+              className="mb-8 rounded-lg"
+            />
           )}
           <h1 className="text-4xl font-serif mb-4">{post.title}</h1>
           {post.date && (

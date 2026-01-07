@@ -62,6 +62,7 @@ export function getPostBySlug(slug: string): Post | null {
       date: data.date || "",
       excerpt: data.excerpt || "",
       content,
+      featuredImage: data.featuredImage || undefined,
     }
   } catch {
     return null
