@@ -1,11 +1,17 @@
 ---
-title: "Finding Light in the Landscape"
-date: "2025-01-15"
-excerpt: "A few thoughts on painting outdoors and the way light transforms familiar places throughout the day."
+title: Painting Outdoors
+date: 2026-01-07
+excerpt: Some thoughts on working outside, observing light, and responding to the landscape as it changes.
 ---
 
-There's something about working directly from the landscape that changes how I see. When you're standing there with your easel, the light shifts almost imperceptibly, and what seemed ordinary becomes filled with colour and movement.
+Painting outdoors has always felt like a conversation rather than a plan.
 
-I find myself drawn back to the same places—a bend in the river, a particular stand of trees—not because they're spectacular, but because each visit reveals something different. The same spot in morning mist has little to do with the same spot in late afternoon sun, yet they share a quiet continuity that only painting seems to capture.
+The light never stays still, and neither does the mood of a place. A cloud passes, the wind shifts, a colour that felt certain moments ago quietly disappears. Working outside means accepting that uncertainty and responding to it rather than fighting it.
 
-These days I try to get out at least once a week, even if it's just for an hour. The process itself, of mixing colours and seeing how they sit next to each other, of building a composition from what's actually in front of me—it's a kind of meditation. And when I look back at these paintings months later, I'm not just seeing the scene, but remembering the weather, the light, the quiet moments of observation.
+I'm drawn to painting on location because it asks for attention. You have to really look — at the relationship between shapes, at the way colour changes across distance, at what matters and what can be left out. There isn't time for overthinking. Decisions are made instinctively, and often imperfectly, but they carry something honest about the moment.
+
+Some days the painting comes together easily. Other days it resists. I've learned that both outcomes are useful. Even unfinished or awkward work teaches you something about light, structure, or your own habits as a painter.
+
+Many of the pieces on this site begin this way — outdoors, in changing conditions, with a focus on atmosphere rather than detail. Back in the studio, those studies often become references for larger works, but they retain the immediacy of that first encounter.
+
+This blog will be a place to share occasional thoughts like these: about painting, places, and the quiet moments that often inspire the work.
