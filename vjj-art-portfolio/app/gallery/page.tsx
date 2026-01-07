@@ -1,7 +1,14 @@
+import type { Metadata } from "next"
 import Header from "@/components/Header"
 import { artworks } from "@/lib/artworks"
 import Image from "next/image"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Gallery | VJ Art",
+  description:
+    "Browse the collection of original oil paintings by Veronica Johnstone, featuring landscapes, still life, and plein air works.",
+}
 
 export default function Gallery() {
   return (
@@ -9,8 +16,8 @@ export default function Gallery() {
       <Header />
       <section className="text-center py-12 px-6">
         <h1 className="text-4xl font-serif mb-4">Gallery</h1>
-        <p className="text-brown/80">
-          Explore the full collection of paintings, still life, and plein air works.
+        <p className="text-brown/80 text-lg">
+          Browse the collection of original oil paintings, featuring landscapes, still life, and plein air works inspired by light, nature, and everyday moments.
         </p>
       </section>
 

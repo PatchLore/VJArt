@@ -1,50 +1,35 @@
-# VJJ Art Portfolio Website
+# VJ Art Portfolio Website
 
-A professional, full-stack artist portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. This modern, responsive website showcases contemporary artwork with a clean, elegant design.
+A static artist portfolio website built with Next.js 16, TypeScript, and Tailwind CSS. This modern, responsive website showcases landscape oil paintings with a clean, elegant design.
 
 ## 🎨 Features
 
-### Frontend
-- **Modern Design**: Clean, contemporary aesthetic with custom color palette
+- **Static Site**: Fully static website with no backend or database
+- **Modern Design**: Clean, contemporary aesthetic with gold, cream, and brown color palette
 - **Responsive Layout**: Mobile-first design that works on all devices
-- **Smooth Animations**: Framer Motion animations for enhanced user experience
-- **Interactive Gallery**: Masonry grid layout with lightbox functionality
-- **Form Validation**: React Hook Form with Zod validation
-- **SEO Optimized**: Meta tags, Open Graph, and structured data
+- **Gallery**: Grid layout displaying all artworks with individual detail pages
+- **Fast & Simple**: Static generation for optimal performance
 
-### Backend
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: NextAuth.js for admin panel
-- **API Routes**: RESTful API for artwork and contact management
-- **Form Handling**: Contact form with email notifications
-- **Image Management**: Cloudinary integration for artwork images
+## 📄 Pages
 
-### Pages
-- **Homepage**: Hero section, featured artworks, stats, and call-to-action
-- **Gallery**: Filterable artwork grid with lightbox modal
-- **Bio**: Artist biography, timeline, achievements, and press
-- **About**: Studio information, team, values, and artist statement
-- **Contact**: Contact form, studio information, and social links
+- **Homepage**: Hero section with featured artworks and link to full gallery
+- **Gallery**: Complete artwork grid with links to individual pieces
+- **Artwork Detail**: Individual pages for each artwork (`/gallery/[slug]`)
+- **About**: Artist biography and background information
+- **Contact**: Contact form with email and Instagram links
 
 ## 🚀 Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Database**: PostgreSQL
-- **ORM**: Prisma
-- **Authentication**: NextAuth.js
-- **Animations**: Framer Motion
-- **Forms**: React Hook Form + Zod
-- **UI Components**: Radix UI + Custom components
 - **Icons**: Lucide React
 - **Deployment**: Vercel
 
-## 📦 Installation
+## 📦 Installation & Setup
 
-1. **Clone the repository**
+1. **Navigate to the project directory**
    ```bash
-   git clone <repository-url>
    cd vjj-art-portfolio
    ```
 
@@ -53,100 +38,137 @@ A professional, full-stack artist portfolio website built with Next.js 14, TypeS
    npm install
    ```
 
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Fill in the required environment variables:
-   ```env
-   # Database
-   DATABASE_URL="postgresql://username:password@localhost:5432/vjj_art_portfolio"
-   
-   # NextAuth
-   NEXTAUTH_URL="http://localhost:3000"
-   NEXTAUTH_SECRET="your-secret-key-here"
-   
-   # Email (for contact form)
-   EMAIL_SERVER_HOST="smtp.gmail.com"
-   EMAIL_SERVER_PORT=587
-   EMAIL_SERVER_USER="your-email@gmail.com"
-   EMAIL_SERVER_PASSWORD="your-app-password"
-   EMAIL_FROM="your-email@gmail.com"
-   
-   # Cloudinary (for image uploads)
-   CLOUDINARY_CLOUD_NAME="your-cloud-name"
-   CLOUDINARY_API_KEY="your-api-key"
-   CLOUDINARY_API_SECRET="your-api-secret"
-   ```
-
-4. **Set up the database**
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
-
-5. **Run the development server**
+3. **Run the development server**
    ```bash
    npm run dev
    ```
 
-## 🗄️ Database Schema
+4. **Open your browser**
+   Visit [http://localhost:3000](http://localhost:3000)
 
-The application uses the following Prisma models:
+## ✏️ Editing Artworks
 
-```prisma
-model Artwork {
-  id          String   @id @default(cuid())
-  title       String
-  description String?
-  medium      String
-  year        Int
-  dimensions  String?
-  price       Float?
-  category    String
-  images      String[] // Array of image URLs
-  featured    Boolean  @default(false)
-  sold        Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+All artwork content is managed in a single file: `lib/artworks.ts`
+
+### Adding a New Artwork
+
+1. **Add your image** to the `public/images/` folder (e.g., `my-painting.jpg`)
+
+2. **Edit `lib/artworks.ts`** and add a new entry to the `artworks` array:
+
+```typescript
+{
+  slug: "my-painting-title",
+  title: "My Painting Title",
+  image: "/images/my-painting.jpg",
+  description: "A brief description of the artwork.",
 }
+```
 
-model Contact {
-  id        String   @id @default(cuid())
-  name      String
-  email     String
-  subject   String
-  message   String
-  read      Boolean  @default(false)
-  createdAt DateTime @default(now())
-}
+**Field descriptions:**
+- **slug**: URL-friendly version of the title (lowercase, hyphens instead of spaces)
+  - Example: "venetian-sunrise" becomes `/gallery/venetian-sunrise`
+- **title**: The artwork's display name
+- **image**: Path to the image file (relative to `public/` folder)
+- **description**: Text that appears on the artwork detail page
 
-model User {
-  id       String @id @default(cuid())
-  email    String @unique
-  password String
-  role     String @default("admin")
-}
+### Updating Featured Artworks
+
+Edit `app/page.tsx` and update the `FEATURED_SLUGS` array:
+
+```typescript
+const FEATURED_SLUGS = ["evening-cafe-paris", "venetian-sunrise", "your-new-artwork-slug"]
+```
+
+### Image Requirements
+
+- Place all images in the `public/images/` folder
+- Use JPEG or PNG format
+- Recommended: Optimize images before adding (compress to reasonable file sizes)
+- Path format: `/images/filename.jpg`
+
+## 🔧 Development
+
+### Available Scripts
+
+```bash
+npm run dev          # Start development server (http://localhost:3000)
+npm run build        # Build for production
+npm run start        # Start production server (after build)
+npm run lint         # Run ESLint
+npm run type-check   # Run TypeScript checks
+```
+
+### Project Structure
+
+```
+vjj-art-portfolio/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Homepage
+│   ├── gallery/           # Gallery pages
+│   │   ├── page.tsx       # Gallery listing
+│   │   └── [slug]/        # Individual artwork pages
+│   ├── about/             # About page
+│   ├── contact/           # Contact page
+│   └── layout.tsx         # Root layout
+├── components/            # React components
+│   └── Header.tsx         # Navigation header
+├── lib/                   # Utility files
+│   ├── artworks.ts        # Artwork data (EDIT THIS to add/update artworks)
+│   ├── getArtwork.ts      # Helper functions
+│   └── slug.ts            # URL slug utilities
+├── public/                # Static assets
+│   └── images/            # Artwork images (PUT YOUR IMAGES HERE)
+└── styles/                # Global styles
+    └── globals.css        # Tailwind CSS and global styles
 ```
 
 ## 🎨 Design System
 
 ### Colors
-- **Primary Gold**: #d4af37
-- **Charcoal**: #2d2d2d
-- **Background**: #f5f5f5
-- **Text**: #333333
+- **Primary Gold**: `#d4af37` - Used for accents, buttons, and hover states
+- **Cream**: `#f5f1e8` - Background color
+- **Brown**: `#3e3226` - Primary text color
 
 ### Typography
 - **Headings**: Playfair Display (serif)
 - **Body**: Inter (sans-serif)
 
-### Components
-- Custom Button component with variants
-- Card components for content display
-- Input components with validation
-- Responsive navigation with mobile menu
+### Tailwind Classes
+
+The site uses custom Tailwind color classes:
+- `bg-gold`, `text-gold`, `border-gold` - Gold color
+- `bg-cream` - Cream background
+- `text-brown` - Brown text color
+
+## 🚀 Deployment
+
+### Deploying to Vercel
+
+1. **Push your code to GitHub/GitLab/Bitbucket**
+
+2. **Connect to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your repository
+
+3. **Configure Root Directory**
+   - In Vercel project settings → General → Root Directory
+   - Set to: `vjj-art-portfolio`
+   - This is **important** if your Next.js app is in a subdirectory
+
+4. **Deploy**
+   - Vercel will automatically detect Next.js and deploy
+   - Future pushes to your main branch will auto-deploy
+
+### Vercel Configuration
+
+The project includes `vercel.json` with the correct settings:
+- Framework: Next.js
+- Build command: `npm run build`
+- Install command: `npm install --legacy-peer-deps`
+
+No environment variables or database setup required — it's fully static!
 
 ## 📱 Responsive Design
 
@@ -155,128 +177,48 @@ The website is fully responsive with breakpoints:
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
-## 🚀 Deployment
+## 🔍 SEO & Performance
 
-### Vercel Deployment
+- Next.js Image optimization for fast loading
+- Static site generation for optimal performance
+- Semantic HTML for accessibility
+- Responsive images with lazy loading
 
-1. **Connect to Vercel**
-   ```bash
-   npm i -g vercel
-   vercel login
-   vercel
-   ```
+## 📝 Content Management
 
-2. **Set up environment variables in Vercel dashboard**
+This is a **static site** with no admin panel or CMS. To update content:
 
-3. **Deploy**
-   ```bash
-   vercel --prod
-   ```
+1. **Artworks**: Edit `lib/artworks.ts`
+2. **Homepage text**: Edit `app/page.tsx`
+3. **About page**: Edit `app/about/page.tsx`
+4. **Contact info**: Edit `app/contact/page.tsx`
+5. **Navigation**: Edit `components/Header.tsx`
 
-### Database Setup
+All changes require editing code files and redeploying.
 
-For production, use a managed PostgreSQL database:
-- **Vercel Postgres**: Integrated with Vercel
-- **Supabase**: Free tier available
-- **Railway**: Easy PostgreSQL setup
+## 🆘 Troubleshooting
 
-## 🔧 Development
+### Images not showing
+- Check that image files are in `public/images/`
+- Verify image paths in `lib/artworks.ts` match file names exactly
+- Image paths should start with `/images/`
 
-### Available Scripts
+### Build errors
+- Run `npm run type-check` to check for TypeScript errors
+- Make sure all artwork slugs are unique
+- Verify image files exist before building
 
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run type-check   # Run TypeScript checks
-```
+### Local development issues
+- Make sure you're in the `vjj-art-portfolio` directory
+- Run `npm install` if dependencies are missing
+- Check that port 3000 is available
 
-### Database Commands
+## 📞 Contact
 
-```bash
-npx prisma studio    # Open Prisma Studio
-npx prisma generate  # Generate Prisma client
-npx prisma db push  # Push schema to database
-npx prisma migrate dev # Create and apply migration
-```
-
-## 📁 Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── api/               # API routes
-│   ├── gallery/           # Gallery page
-│   ├── bio/               # Bio page
-│   ├── about/             # About page
-│   ├── contact/           # Contact page
-│   └── layout.tsx         # Root layout
-├── components/            # React components
-│   ├── ui/               # Reusable UI components
-│   └── layout/           # Layout components
-├── lib/                  # Utility functions
-│   ├── auth.ts           # NextAuth configuration
-│   ├── db.ts             # Prisma client
-│   └── utils.ts          # Utility functions
-└── styles/               # Global styles
-```
-
-## 🎯 Features Implementation
-
-### Gallery
-- Masonry grid layout for artwork display
-- Filter by category (Abstract, Landscape, Digital, Nature)
-- Lightbox modal for full-size viewing
-- Lazy loading for performance
-- Responsive design
-
-### Contact Form
-- Form validation with Zod
-- Email notifications
-- Database storage
-- Success/error handling
-
-### Authentication
-- NextAuth.js integration
-- Admin panel access
-- Protected routes
-- Session management
-
-## 🔒 Security
-
-- Environment variables for sensitive data
-- CSRF protection
-- Input validation and sanitization
-- SQL injection prevention via Prisma
-- Rate limiting on API routes
-
-## 📈 Performance
-
-- Next.js Image optimization
-- Lazy loading for gallery
-- Code splitting
-- Caching strategies
-- CDN for static assets
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 📞 Support
-
-For support or questions, please contact:
-- Email: info@vjjart.com
-- Website: https://vjjart.com
+For questions about the website:
+- Email: johnej@btinternet.com
+- Instagram: [@vjj_art](https://www.instagram.com/vjj_art)
 
 ---
 
-Built with ❤️ for contemporary art lovers.
+Built with Next.js 16 and Tailwind CSS. A simple, fast, and beautiful way to showcase artwork.

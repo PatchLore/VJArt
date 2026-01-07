@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 export default function Header() {
-  const links = ["Home", "Gallery", "About", "Contact"]
+  const links = ["Home", "Gallery", "Blog", "About", "Contact"]
   return (
     <header className="py-6 border-b border-brown/20 bg-cream">
       <nav className="flex justify-center gap-8 text-brown font-semibold">

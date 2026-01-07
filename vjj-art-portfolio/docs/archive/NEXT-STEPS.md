@@ -1,3 +1,7 @@
+<!-- ARCHIVED: This document describes FormSpree setup for an old HTML version (veronica-portfolio.html).
+     The current app is a Next.js static site with a simple mailto contact form, not FormSpree.
+     Archived 2025-01-07 -->
+
 # Next Steps - Veronica Johnstone Portfolio Website
 
 ## 🎯 Priority Actions Required

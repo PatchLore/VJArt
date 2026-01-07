@@ -1,3 +1,7 @@
+<!-- ARCHIVED: This document mentions database setup and src/ structure that doesn't match the current app.
+     The current app uses app/ (not src/app/) and has no database.
+     Archived 2025-01-07 -->
+
 # ✅ Vercel Configuration Guide
 
 ## Project Structure

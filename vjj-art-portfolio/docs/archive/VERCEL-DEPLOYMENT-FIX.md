@@ -1,3 +1,7 @@
+<!-- ARCHIVED: This document describes Prisma and database setup that doesn't exist in the current static app.
+     The current app has no database, Prisma, or API routes.
+     Archived 2025-01-07 -->
+
 # Vercel 404 Fix - Deployment Guide
 
 ## Issues Fixed

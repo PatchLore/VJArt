@@ -1,3 +1,7 @@
+<!-- ARCHIVED: This document references src/ structure, admin pages, NextAuth API routes, and database features
+     that don't exist in the current static app. The current app uses app/ (not src/app/) and has no backend.
+     Archived 2025-01-07 -->
+
 # TypeScript Audit Report
 
 **Date:** 2025-01-27  

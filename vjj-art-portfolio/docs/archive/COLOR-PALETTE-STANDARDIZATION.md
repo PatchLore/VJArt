@@ -1,3 +1,8 @@
+<!-- ARCHIVED: This document references src/ structure and components that don't exist in the current app.
+     The current app uses app/ (not src/app/) and has a simpler component structure.
+     Color palette info may still be useful but file paths are outdated.
+     Archived 2025-01-07 -->
+
 # Color Palette Standardization Summary
 
 ## ✅ Completed: VJ Art Website Color Standardization

@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import Header from "@/components/Header"
+
+export const metadata: Metadata = {
+  title: "About | VJ Art",
+  description:
+    "Learn about Veronica Johnstone, an oil painter specializing in landscapes and plein air works inspired by light and nature.",
+}
 
 export default function AboutPage() {
   return (
@@ -9,19 +16,19 @@ export default function AboutPage() {
 
         <div className="space-y-6 text-lg leading-relaxed font-sans">
           <p>
-            My name is <strong>Veronica Johnstone</strong>. I&apos;ve always enjoyed drawing and painting; art was my favourite subject in school. I considered art college, but my parents insisted on a traditional career.
+            I&apos;m <strong>Veronica Johnstone</strong>, and I&apos;ve been painting for as long as I can remember. Art was always my favourite subject in school, and though life took me on a different path initially, I never stopped drawing and painting.
           </p>
           <p>
-            I attend evening classes and several part-time courses covering portraiture, still life, life drawing and sculpture. In the mid 1990&apos;s I found enough time to take a two-year part-time course at Croydon Art College which incorporated printing, photography, sculpture and illustration.
+            Over the years, I&apos;ve dedicated myself to learning through evening classes and part-time courses. In the mid-1990s, I completed a two-year part-time course at Croydon Art College, where I explored various mediums including portraiture, still life, life drawing, sculpture, printing, photography, and illustration.
           </p>
           <p>
-            It wasn&apos;t until later in my life I took a strong interest in landscape painting plein air, and it is something I try to achieve once a week. My progress as an artist led me to join many established art groups and societies.
+            These days, I&apos;m particularly drawn to painting landscapes outdoors, working directly from life whenever possible. I try to paint plein air at least once a week, capturing the changing light and atmosphere of the places I love.
           </p>
           <p>
-            Following my move to West Sussex, I have more recently established membership with Caterham, North Weald, Dorking, Sussex Group of Artists and East Grinstead art groups.
+            Since moving to West Sussex, I&apos;ve become a member of several local art groups including the Caterham, North Weald, Dorking, Sussex Group of Artists, and East Grinstead art societies. These communities have been wonderful for sharing inspiration and continuing to grow as an artist.
           </p>
           <p>
-            I mostly work in oils but do occasionally produce works in Acrylic, Watercolour, Pastel and Charcoal. Although I prefer painting subjects directly from life, I am also open to creating art based on photographs.
+            I primarily work in oils, though I also enjoy working with acrylics, watercolours, pastels, and charcoal. While I prefer painting directly from life, I also create pieces based on photographs when working outdoors isn&apos;t possible.
           </p>
         </div>
 

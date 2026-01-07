@@ -1,7 +1,14 @@
+import type { Metadata } from "next"
 import Header from "@/components/Header"
 import Image from "next/image"
 import Link from "next/link"
 import { artworks } from "@/lib/artworks"
+
+export const metadata: Metadata = {
+  title: "Home | VJ Art",
+  description:
+    "Original landscape oil paintings by Veronica Johnstone. Capturing light, mood, and the quiet poetry of nature.",
+}
 
 const FEATURED_SLUGS = ["evening-cafe-paris", "venetian-sunrise", "crocuses-in-mums-cup"]
 
