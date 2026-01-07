@@ -1,4 +1,4 @@
-# Vercel Configuration - Root Directory
+# Vercel Root Directory Configuration
 
 ## ⚠️ IMPORTANT FOR FUTURE MAINTAINERS
 
@@ -27,6 +27,6 @@ Without the Root Directory setting, Vercel will look for `package.json` at the r
 
 ## Configuration Notes
 
-The `vercel.json` file now includes `"rootDirectory": "vjj-art-portfolio"` to explicitly set the root directory. 
+The `vercel.json` file contains build configuration (`installCommand`, `buildCommand`, `framework`), but **the root directory cannot be set in vercel.json** — it must be configured in the Vercel Dashboard UI.
 
-**Important:** Even if set in `vercel.json`, you should also verify this setting in the Vercel Dashboard (Settings → General → Root Directory) to ensure consistency. Some deployment scenarios may require the dashboard setting as well.
+**Important:** You should verify this setting in the Vercel Dashboard (Settings → General → Root Directory) to ensure correct deployment behavior.

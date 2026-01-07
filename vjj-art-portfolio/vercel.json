@@ -1,6 +1,6 @@
-﻿{
-  "buildCommand": "npm run build",
-  "framework": "nextjs",
+{
   "installCommand": "npm install --legacy-peer-deps",
-  "rootDirectory": "vjj-art-portfolio"
+  "buildCommand": "npm run build",
+  "framework": "nextjs"
 }
+
